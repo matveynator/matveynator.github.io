@@ -224,10 +224,17 @@
 
       <h3>Download</h3>
       <ul>
-        <li><a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64_desktop.exe">Desktop for Windows (amd64)</a></li>
-        <li><a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_arm64_desktop">Desktop for macOS Apple Silicon (arm64)</a></li>
-        <li><a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_amd64_desktop">Desktop for macOS Intel (amd64)</a></li>
+        <li><a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64_desktop.exe">Desktop for Windows (amd64 .exe)</a></li>
+        <li><a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64_desktop.zip">Desktop for Windows (amd64 .zip)</a></li>
+        <li><a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_universal_desktop.app.zip">Desktop for macOS Universal (.app.zip)</a> <strong>← recommended for all modern Macs</strong></li>
         <li><a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop">Desktop for Linux (amd64)</a></li>
+        <li><a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop.tar.gz">Desktop for Linux (amd64 .tar.gz)</a></li>
+      </ul>
+      <p class="muted">Verified release checksums:</p>
+      <ul>
+        <li><code>chicha-isotope-map_darwin_universal_desktop.app.zip</code> — <code>8710c9ad56ed6bd4930d2790e306c693803be0350d47a486e150de5e84efd98e</code></li>
+        <li><code>chicha-isotope-map_windows_amd64_desktop.exe</code> — <code>7b6fbbc75847afb63e00d8d5514757442f3ccd177b8b00036d20406575245e29</code></li>
+        <li><code>chicha-isotope-map_linux_amd64_desktop</code> — <code>53ea5e9381074c8b6822ba0637ebe426f76f8f7d6ce3e3e29f7dec7675ec923d</code></li>
       </ul>
 
       <h3>Run</h3>
@@ -238,9 +245,11 @@
         <li>If SmartScreen appears: <strong>More info → Run anyway</strong></li>
       </ol>
 
-      <p>macOS:</p>
-      <pre><code>chmod +x ./chicha-isotope-map_darwin_*_desktop
-./chicha-isotope-map_darwin_*_desktop</code></pre>
+      <p>macOS (Universal build):</p>
+      <pre><code>curl -fL https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_universal_desktop.app.zip -o chicha-isotope-map.app.zip
+unzip -o chicha-isotope-map.app.zip
+open ./chicha-isotope-map_darwin_universal_desktop.app</code></pre>
+      <p class="muted">SHA256 (macOS Universal app.zip): <code>8710c9ad56ed6bd4930d2790e306c693803be0350d47a486e150de5e84efd98e</code></p>
 
       <p>Linux:</p>
       <pre><code>curl -fL https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop -o chicha-isotope-map-desktop
@@ -258,10 +267,9 @@ chmod +x ./chicha-isotope-map-desktop
       <pre><code>CGO_ENABLED=0 go build .
 ./chicha-isotope-map</code></pre>
 
-      <h3>Screenshots:</h3>
+      <h3>Screenshot (macOS Universal desktop app):</h3>
       <div class="screenshots">
-        <img alt="desktop placeholder 1" src="https://github.com/user-attachments/assets/617a0ced-4280-41c2-9320-de1cfd33a61f" />
-        <img alt="desktop placeholder 2" src="https://github.com/user-attachments/assets/13256b23-744d-4d02-a26c-ae9aef5b0d87" />
+        <img alt="Chicha Isotope Map macOS universal desktop screenshot" src="./chicha-isotope-map-macosx-universal.png" />
       </div>
     </section>
 
