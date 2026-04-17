@@ -8,20 +8,19 @@
   <style>
     :root {
       color-scheme: dark;
-      --bg: #0b1220;
-      --bg-soft: #131d31;
-      --surface: #1a2942;
-      --surface-strong: #22365a;
-      --text: #e9f1ff;
-      --muted: #9cb0d4;
-      --accent: #5fa8ff;
-      --accent-strong: #7fbeff;
-      --ok: #5fe0a1;
-      --warn: #ffd280;
-      --border: #2f4b79;
-      --shadow: rgba(0, 0, 0, 0.35);
-      --radius-lg: 16px;
+      --bg: #0a0a0f;
+      --bg-soft: #11111a;
+      --surface: #171725;
+      --surface-strong: #1f1f31;
+      --text: #f2f3f8;
+      --muted: #a3a6b7;
+      --primary: #8b5cf6;
+      --primary-strong: #a78bfa;
+      --border: rgba(255, 255, 255, 0.12);
+      --radius-lg: 22px;
+      --radius-md: 16px;
       --radius-sm: 12px;
+      --shadow: rgba(7, 7, 12, 0.6);
     }
 
     * {
@@ -32,94 +31,101 @@
 
     body {
       background:
-        radial-gradient(90rem 70rem at -20% -10%, #2f4b79 0%, transparent 45%),
-        radial-gradient(80rem 60rem at 120% 0%, #2d5ca6 0%, transparent 45%),
+        radial-gradient(90rem 70rem at -20% -20%, rgba(139, 92, 246, 0.24) 0%, transparent 52%),
+        radial-gradient(80rem 60rem at 120% 0%, rgba(59, 130, 246, 0.18) 0%, transparent 52%),
         var(--bg);
       color: var(--text);
-      font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.5;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
       min-height: 100vh;
     }
 
-    .container {
+    .page {
       margin: 0 auto;
-      max-width: 1080px;
+      max-width: 1120px;
       padding: 2.5rem 1.25rem 4rem;
     }
 
     .hero {
-      background: linear-gradient(160deg, rgba(34, 54, 90, 0.95), rgba(18, 31, 53, 0.95));
+      backdrop-filter: blur(5px);
+      background: linear-gradient(160deg, rgba(31, 31, 49, 0.92), rgba(15, 15, 24, 0.92));
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      box-shadow: 0 20px 40px -24px var(--shadow);
+      box-shadow: 0 28px 40px -26px var(--shadow);
       display: grid;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      padding: 1.5rem;
+      gap: 1.1rem;
+      margin-bottom: 1.2rem;
+      padding: clamp(1.2rem, 2vw, 2rem);
     }
 
-    .hero-main {
+    .hero-top {
       align-items: center;
       display: flex;
-      gap: 1rem;
+      gap: 0.95rem;
     }
 
-    .hero-main img {
-      width: 72px;
-      height: 72px;
+    .logo {
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 20px;
-      box-shadow: 0 8px 18px -12px #000;
-      background: rgba(255,255,255,0.08);
-      padding: 0.35rem;
+      height: 64px;
+      padding: 0.3rem;
+      width: 64px;
     }
 
     h1 {
-      font-size: clamp(1.35rem, 3vw, 2rem);
-      letter-spacing: 0.01em;
+      font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
     }
 
     .subtitle {
       color: var(--muted);
-      margin-top: 0.2rem;
+      font-size: 1rem;
+      margin-top: 0.25rem;
     }
 
-    .chips {
+    .pill-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.55rem;
-      margin-top: 0.55rem;
+      gap: 0.5rem;
     }
 
-    .chip {
-      background: rgba(95, 168, 255, 0.13);
-      border: 1px solid rgba(127, 190, 255, 0.4);
+    .pill {
+      background: rgba(167, 139, 250, 0.14);
+      border: 1px solid rgba(167, 139, 250, 0.38);
       border-radius: 999px;
-      color: #cae0ff;
-      font-size: 0.87rem;
-      padding: 0.25rem 0.7rem;
+      color: #ddd4fe;
+      font-size: 0.85rem;
+      padding: 0.2rem 0.68rem;
     }
 
-    .links-row {
+    .hero-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 0.35rem;
+      gap: 0.65rem;
     }
 
     .button {
       align-items: center;
-      background: linear-gradient(180deg, var(--accent-strong), var(--accent));
-      border: 0;
       border-radius: 11px;
-      color: #0b1426;
       display: inline-flex;
       font-weight: 650;
-      gap: 0.45rem;
       justify-content: center;
-      min-height: 2.65rem;
-      padding: 0.6rem 1rem;
+      min-height: 2.6rem;
+      padding: 0.58rem 0.95rem;
       text-decoration: none;
       transition: transform 120ms ease, filter 120ms ease;
+    }
+
+    .button.primary {
+      background: linear-gradient(180deg, var(--primary-strong), var(--primary));
+      color: #130c2e;
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      color: var(--text);
     }
 
     .button:hover {
@@ -127,13 +133,7 @@
       transform: translateY(-1px);
     }
 
-    .button.secondary {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-
-    .grid {
+    .cards {
       display: grid;
       gap: 1rem;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -141,162 +141,299 @@
     }
 
     .card {
-      background: linear-gradient(180deg, rgba(26, 41, 66, 0.94), rgba(17, 27, 45, 0.95));
+      background: linear-gradient(180deg, rgba(23, 23, 37, 0.96), rgba(14, 14, 23, 0.97));
       border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem;
-      box-shadow: 0 18px 35px -25px var(--shadow);
+      border-radius: var(--radius-md);
+      box-shadow: 0 24px 34px -28px var(--shadow);
+      padding: 1.15rem;
     }
 
-    .card-header {
+    .card-recommended {
+      border-color: rgba(167, 139, 250, 0.7);
+      box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.25), 0 24px 34px -28px var(--shadow);
+    }
+
+    .card-head {
       align-items: baseline;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
       justify-content: space-between;
-      margin-bottom: 0.8rem;
+      gap: 0.55rem;
+      margin-bottom: 0.6rem;
     }
 
-    h2 {
-      font-size: 1.1rem;
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 650;
     }
 
-    .label {
-      color: #12213a;
-      background: var(--ok);
+    .badge {
       border-radius: 999px;
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.03em;
-      padding: 0.2rem 0.6rem;
+      padding: 0.16rem 0.58rem;
       text-transform: uppercase;
     }
 
-    .label.warn {
-      background: var(--warn);
+    .badge.primary {
+      background: #c4b5fd;
+      color: #2b194f;
+    }
+
+    .badge.muted {
+      background: #2a2c3b;
+      color: #ccd0e2;
     }
 
     .note {
       color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
+      font-size: 0.93rem;
+      margin-bottom: 0.82rem;
     }
 
-    .download-list {
+    .download-group {
       display: grid;
-      gap: 0.6rem;
-      margin-bottom: 1rem;
+      gap: 0.56rem;
     }
 
     .download-link {
       background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(156, 176, 212, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: var(--radius-sm);
       color: var(--text);
       display: block;
-      font-weight: 550;
-      padding: 0.62rem 0.8rem;
+      font-weight: 540;
+      padding: 0.56rem 0.72rem;
       text-decoration: none;
+      transition: border-color 120ms ease;
     }
 
     .download-link:hover {
-      border-color: var(--accent);
-      color: #ffffff;
+      border-color: rgba(167, 139, 250, 0.85);
     }
 
-    .code-block {
-      background: #0a1427;
-      border: 1px solid #29426a;
+    .divider {
+      border-top: 1px solid var(--border);
+      margin: 1.15rem 0 1rem;
+      padding-top: 1rem;
+    }
+
+    .subheading {
+      color: #d5d8e6;
+      font-size: 1rem;
+      margin-bottom: 0.72rem;
+    }
+
+    .mono {
+      background: #090a12;
+      border: 1px solid rgba(255, 255, 255, 0.13);
       border-radius: var(--radius-sm);
-      color: #cae0ff;
+      color: #d4dbff;
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.87rem;
+      font-size: 0.84rem;
+      margin-top: 0.9rem;
       overflow-x: auto;
-      padding: 0.75rem;
+      padding: 0.72rem;
       white-space: pre;
     }
 
     .footer {
       color: var(--muted);
       font-size: 0.9rem;
-      margin-top: 1.35rem;
+      margin-top: 1.2rem;
       text-align: center;
     }
 
-    @media (max-width: 900px) {
-      .grid {
+    @media (max-width: 920px) {
+      .cards {
         grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <main class="container">
+  <main class="page">
     <section class="hero">
-      <div class="hero-main">
-        <img src="../../public_html/images/chicha-isotope-map-round-logo.png" alt="Chicha Isotope Map logo" />
+      <div class="hero-top">
+        <img class="logo" src="../../public_html/images/chicha-isotope-map-round-logo.png" alt="Chicha Isotope Map logo" />
         <div>
           <h1>Chicha Isotope Map — Stable Downloads</h1>
-          <p class="subtitle">Desktop and server binaries for Radiacode, AtomFast and Safecast workflows.</p>
-          <div class="chips">
-            <span class="chip">Windows</span>
-            <span class="chip">macOS</span>
-            <span class="chip">Linux</span>
-            <span class="chip">FreeBSD</span>
-            <span class="chip">OpenBSD</span>
-            <span class="chip">amd64 & arm64</span>
-          </div>
+          <p class="subtitle">Desktop first for your current system, then server build. Everything else stays below.</p>
         </div>
       </div>
-      <div class="links-row">
-        <a class="button" href="https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release">Open all release assets</a>
+
+      <div class="pill-row">
+        <span class="pill">Windows</span>
+        <span class="pill">macOS</span>
+        <span class="pill">Linux</span>
+        <span class="pill">FreeBSD</span>
+        <span class="pill">OpenBSD</span>
+        <span class="pill">amd64 + arm64</span>
+      </div>
+
+      <div class="hero-links">
+        <a class="button primary" href="https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release">Open all release assets</a>
         <a class="button secondary" href="https://github.com/matveynator/chicha-isotope-map">View source on GitHub</a>
       </div>
     </section>
 
-    <section class="grid">
+    <section class="cards">
+      <article class="card card-recommended">
+        <div class="card-head">
+          <h2 class="card-title" id="recommended-title">Recommended for your system</h2>
+          <span class="badge primary">Top</span>
+        </div>
+        <p class="note" id="recommended-note">We detect your OS and architecture in browser and put best links first.</p>
+        <div class="download-group" id="recommended-links"></div>
+      </article>
+
       <article class="card">
-        <div class="card-header">
-          <h2>Desktop app (GUI)</h2>
-          <span class="label">Recommended</span>
+        <div class="card-head">
+          <h2 class="card-title">Other downloads</h2>
+          <span class="badge muted">All builds</span>
         </div>
-        <p class="note">Best for local personal use. Download, run, and work with map UI immediately.</p>
+        <p class="note">If auto-detection is not right, use any direct link from the full list below.</p>
 
-        <div class="download-list">
-          <a class="download-link" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64_desktop.exe">Windows (amd64) desktop</a>
-          <a class="download-link" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_arm64_desktop">macOS Apple Silicon (arm64) desktop</a>
-          <a class="download-link" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_amd64_desktop">macOS Intel (amd64) desktop</a>
-          <a class="download-link" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop">Linux (amd64) desktop</a>
-        </div>
-
-        <div class="code-block"># Linux quick start
+        <div class="divider">
+          <h3 class="subheading">Desktop app (GUI)</h3>
+          <div class="download-group" id="all-desktop-links"></div>
+          <div class="mono"># Linux quick start
 curl -fL https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop -o chicha-isotope-map-desktop
 chmod +x ./chicha-isotope-map-desktop
 ./chicha-isotope-map-desktop</div>
-      </article>
-
-      <article class="card">
-        <div class="card-header">
-          <h2>Server app (self-hosted)</h2>
-          <span class="label warn">Headless</span>
-        </div>
-        <p class="note">Run as local or remote server. Open the map from any browser at <code>localhost:8765</code>.</p>
-
-        <div class="download-list">
-          <a class="download-link" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64.exe">Windows (amd64) server</a>
-          <a class="download-link" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_arm64">macOS Apple Silicon (arm64) server</a>
-          <a class="download-link" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_amd64">macOS Intel (amd64) server</a>
-          <a class="download-link" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64">Linux (amd64) server</a>
         </div>
 
-        <div class="code-block"># Linux quick start (server)
+        <div class="divider">
+          <h3 class="subheading">Server app (self-hosted)</h3>
+          <div class="download-group" id="all-server-links"></div>
+          <div class="mono"># Linux quick start (server)
 sudo curl -fL https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64 -o /usr/local/bin/chicha-isotope-map
 sudo chmod +x /usr/local/bin/chicha-isotope-map
 /usr/local/bin/chicha-isotope-map</div>
+        </div>
       </article>
     </section>
 
-    <p class="footer">Stable assets are replaced on each <strong>stable-release</strong> build, so links always point to the latest version.</p>
+    <p class="footer">Stable assets are replaced on each <strong>stable-release</strong> build, so one link always points to the latest binaries.</p>
   </main>
+
+  <script>
+    const stableReleaseBase = 'https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/';
+
+    const downloadModel = {
+      desktop: [
+        { os: 'windows', arch: 'amd64', label: 'Windows (amd64) desktop', file: 'chicha-isotope-map_windows_amd64_desktop.exe' },
+        { os: 'macos', arch: 'arm64', label: 'macOS Apple Silicon (arm64) desktop', file: 'chicha-isotope-map_darwin_arm64_desktop' },
+        { os: 'macos', arch: 'amd64', label: 'macOS Intel (amd64) desktop', file: 'chicha-isotope-map_darwin_amd64_desktop' },
+        { os: 'linux', arch: 'amd64', label: 'Linux (amd64) desktop', file: 'chicha-isotope-map_linux_amd64_desktop' },
+        { os: 'linux', arch: 'arm64', label: 'Linux (arm64) desktop', file: 'chicha-isotope-map_linux_arm64_desktop' },
+        { os: 'freebsd', arch: 'amd64', label: 'FreeBSD (amd64) desktop', file: 'chicha-isotope-map_freebsd_amd64_desktop' },
+        { os: 'freebsd', arch: 'arm64', label: 'FreeBSD (arm64) desktop', file: 'chicha-isotope-map_freebsd_arm64_desktop' },
+        { os: 'openbsd', arch: 'amd64', label: 'OpenBSD (amd64) desktop', file: 'chicha-isotope-map_openbsd_amd64_desktop' },
+        { os: 'openbsd', arch: 'arm64', label: 'OpenBSD (arm64) desktop', file: 'chicha-isotope-map_openbsd_arm64_desktop' }
+      ],
+      server: [
+        { os: 'windows', arch: 'amd64', label: 'Windows (amd64) server', file: 'chicha-isotope-map_windows_amd64.exe' },
+        { os: 'macos', arch: 'arm64', label: 'macOS Apple Silicon (arm64) server', file: 'chicha-isotope-map_darwin_arm64' },
+        { os: 'macos', arch: 'amd64', label: 'macOS Intel (amd64) server', file: 'chicha-isotope-map_darwin_amd64' },
+        { os: 'linux', arch: 'amd64', label: 'Linux (amd64) server', file: 'chicha-isotope-map_linux_amd64' },
+        { os: 'linux', arch: 'arm64', label: 'Linux (arm64) server', file: 'chicha-isotope-map_linux_arm64' },
+        { os: 'freebsd', arch: 'amd64', label: 'FreeBSD (amd64) server', file: 'chicha-isotope-map_freebsd_amd64' },
+        { os: 'freebsd', arch: 'arm64', label: 'FreeBSD (arm64) server', file: 'chicha-isotope-map_freebsd_arm64' },
+        { os: 'openbsd', arch: 'amd64', label: 'OpenBSD (amd64) server', file: 'chicha-isotope-map_openbsd_amd64' },
+        { os: 'openbsd', arch: 'arm64', label: 'OpenBSD (arm64) server', file: 'chicha-isotope-map_openbsd_arm64' }
+      ]
+    };
+
+    function createDownloadURL(fileName) {
+      return stableReleaseBase + fileName;
+    }
+
+    function createDownloadLinkElement(downloadEntry) {
+      const linkElement = document.createElement('a');
+      linkElement.className = 'download-link';
+      linkElement.href = createDownloadURL(downloadEntry.file);
+      linkElement.textContent = downloadEntry.label;
+      return linkElement;
+    }
+
+    function detectUserSystem() {
+      const userAgentData = navigator.userAgentData || null;
+      const platformLower = String(navigator.platform || '').toLowerCase();
+      const userAgentLower = String(navigator.userAgent || '').toLowerCase();
+      const architectureLower = String(navigator.userAgentData?.architecture || '').toLowerCase();
+
+      let detectedOS = 'linux';
+      if (platformLower.includes('win') || userAgentLower.includes('windows')) {
+        detectedOS = 'windows';
+      } else if (platformLower.includes('mac') || userAgentLower.includes('mac os')) {
+        detectedOS = 'macos';
+      } else if (userAgentLower.includes('freebsd')) {
+        detectedOS = 'freebsd';
+      } else if (userAgentLower.includes('openbsd')) {
+        detectedOS = 'openbsd';
+      }
+
+      let detectedArch = 'amd64';
+      if (architectureLower.includes('arm') || userAgentLower.includes('arm64') || userAgentLower.includes('aarch64')) {
+        detectedArch = 'arm64';
+      } else if (detectedOS === 'macos' && userAgentLower.includes('intel')) {
+        detectedArch = 'amd64';
+      } else if (detectedOS === 'macos' && userAgentLower.includes('applewebkit')) {
+        detectedArch = 'arm64';
+      }
+
+      if (userAgentData && Array.isArray(userAgentData.brands) && userAgentData.mobile === false) {
+        return { os: detectedOS, arch: detectedArch, confidence: 'desktop' };
+      }
+
+      return { os: detectedOS, arch: detectedArch, confidence: 'inferred' };
+    }
+
+    function selectPrimaryDownload(downloadGroup, userSystem) {
+      const exactMatch = downloadGroup.find(function(downloadEntry) {
+        return downloadEntry.os === userSystem.os && downloadEntry.arch === userSystem.arch;
+      });
+
+      if (exactMatch) {
+        return exactMatch;
+      }
+
+      const osMatch = downloadGroup.find(function(downloadEntry) {
+        return downloadEntry.os === userSystem.os;
+      });
+
+      if (osMatch) {
+        return osMatch;
+      }
+
+      return downloadGroup[0];
+    }
+
+    function renderLinkList(targetElementId, downloadEntries) {
+      const targetElement = document.getElementById(targetElementId);
+      targetElement.innerHTML = '';
+      downloadEntries.forEach(function(downloadEntry) {
+        targetElement.appendChild(createDownloadLinkElement(downloadEntry));
+      });
+    }
+
+    function renderPageFromModel() {
+      const userSystem = detectUserSystem();
+      const primaryDesktop = selectPrimaryDownload(downloadModel.desktop, userSystem);
+      const primaryServer = selectPrimaryDownload(downloadModel.server, userSystem);
+
+      const recommendedTitleElement = document.getElementById('recommended-title');
+      const recommendedNoteElement = document.getElementById('recommended-note');
+      recommendedTitleElement.textContent = 'Recommended for ' + userSystem.os + ' (' + userSystem.arch + ')';
+      recommendedNoteElement.textContent = 'First: desktop build. Second: server build for the same system.';
+
+      renderLinkList('recommended-links', [primaryDesktop, primaryServer]);
+      renderLinkList('all-desktop-links', downloadModel.desktop);
+      renderLinkList('all-server-links', downloadModel.server);
+    }
+
+    renderPageFromModel();
+  </script>
 </body>
 </html>
