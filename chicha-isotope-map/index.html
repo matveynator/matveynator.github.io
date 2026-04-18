@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chicha Isotope Map — Stable Downloads</title>
-  <meta name="description" content="Download desktop and server builds of Chicha Isotope Map." />
+  <title>Chicha Isotope Map — Download</title>
+  <meta name="description" content="Clean download page for Chicha Isotope Map desktop and server builds." />
   <style>
     :root {
       color-scheme: light;
-      --page: #f6f7fb;
-      --card: #ffffff;
-      --text: #161825;
-      --muted: #5f6578;
-      --line: #e7eaf3;
-      --primary: #3c5dff;
-      --primary-2: #5d7bff;
-      --code-bg: #f7f8ff;
-      --radius-lg: 24px;
-      --radius-md: 16px;
-      --radius-sm: 12px;
-      --shadow: 0 18px 40px -28px rgba(35, 45, 80, 0.45);
+      --background: #f3f6ff;
+      --surface: #ffffff;
+      --surface-secondary: #f8faff;
+      --text-primary: #11162a;
+      --text-secondary: #5a6382;
+      --line: #e0e7ff;
+      --primary: #4567ff;
+      --primary-strong: #334eff;
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --shadow: 0 24px 50px -35px rgba(42, 65, 170, 0.45);
     }
 
     * {
@@ -30,293 +30,339 @@
 
     body {
       background:
-        radial-gradient(100rem 40rem at 10% -10%, rgba(60, 93, 255, 0.12), transparent 45%),
-        radial-gradient(100rem 40rem at 100% -20%, rgba(115, 204, 255, 0.18), transparent 45%),
-        var(--page);
-      color: var(--text);
+        radial-gradient(85rem 35rem at 0% -20%, rgba(87, 122, 255, 0.2), transparent 46%),
+        radial-gradient(85rem 35rem at 100% -20%, rgba(72, 188, 255, 0.2), transparent 46%),
+        var(--background);
+      color: var(--text-primary);
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
+      line-height: 1.5;
       min-height: 100vh;
-      padding: 1.5rem;
-    }
-
-    .container {
-      margin: 0 auto;
-      max-width: 980px;
-    }
-
-    .lang-row {
-      background: rgba(255, 255, 255, 0.75);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow);
-      font-size: 0.92rem;
-      margin-bottom: 1rem;
-      padding: 0.75rem 0.95rem;
-      text-align: center;
-    }
-
-    .lang-row a {
-      color: #3141a1;
-      text-decoration: none;
-    }
-
-    .lang-row a:hover {
-      text-decoration: underline;
-    }
-
-    .hero {
-      background: linear-gradient(165deg, #ffffff, #f7f9ff);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-      margin-bottom: 1rem;
-      padding: 1.4rem;
-      text-align: center;
-    }
-
-    .hero img {
-      display: block;
-      margin: 0 auto 0.8rem;
-      width: 120px;
-    }
-
-    h1 {
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      margin-bottom: 0.75rem;
-    }
-
-    .hero p {
-      color: var(--muted);
-      margin: 0 auto 0.65rem;
-      max-width: 740px;
-    }
-
-    .hero-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-      justify-content: center;
-      margin-top: 0.6rem;
-    }
-
-    .btn {
-      background: linear-gradient(180deg, var(--primary-2), var(--primary));
-      border-radius: 10px;
-      color: #fff;
-      display: inline-block;
-      font-weight: 600;
-      padding: 0.5rem 0.9rem;
-      text-decoration: none;
-    }
-
-    .btn.alt {
-      background: #eef2ff;
-      color: #25369a;
-    }
-
-    .section {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow);
-      margin-top: 1rem;
       padding: 1.2rem;
     }
 
-    h2 {
-      border-bottom: 1px solid var(--line);
-      font-size: 1.25rem;
-      margin-bottom: 0.9rem;
-      padding-bottom: 0.6rem;
+    .page {
+      margin: 0 auto;
+      max-width: 1020px;
     }
 
-    h3 {
-      font-size: 1.03rem;
-      margin: 0.8rem 0 0.4rem;
-    }
-
-    ul, ol {
-      margin-left: 1.2rem;
-    }
-
-    li + li {
-      margin-top: 0.35rem;
-    }
-
-    pre {
-      background: var(--code-bg);
-      border: 1px solid #dce3f6;
-      border-radius: 10px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      font-size: 0.87rem;
-      margin-top: 0.45rem;
-      overflow-x: auto;
-      padding: 0.7rem;
-    }
-
-    .screenshots img {
+    .panel {
+      background: var(--surface);
       border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      margin-top: 0.7rem;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      margin-bottom: 1rem;
+      padding: 1.35rem;
+    }
+
+    .hero {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 120px 1fr;
+      align-items: center;
+    }
+
+    .hero-logo {
       width: 100%;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 0.6rem;
     }
 
-    .divider {
-      border-top: 1px dashed #d9deef;
-      margin: 1rem 0;
+    .hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 0.45rem;
     }
 
-    a {
-      color: #3044b8;
+    .hero p {
+      color: var(--text-secondary);
+      max-width: 720px;
     }
 
-    .muted {
-      color: var(--muted);
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 0.9rem;
     }
 
-    @media (max-width: 680px) {
-      body {
-        padding: 0.9rem;
+    .download-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      border-radius: 11px;
+      padding: 0.6rem 1rem;
+      text-decoration: none;
+      transition: transform 0.12s ease;
+    }
+
+    .download-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .download-button.primary {
+      background: linear-gradient(180deg, var(--primary), var(--primary-strong));
+      color: #fff;
+    }
+
+    .download-button.secondary {
+      background: #edf2ff;
+      color: #2e43a9;
+    }
+
+    .recommended {
+      background: linear-gradient(165deg, #ffffff 0%, #f5f8ff 100%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem;
+      margin-top: 1rem;
+    }
+
+    .recommended h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .recommended p {
+      color: var(--text-secondary);
+      margin-bottom: 0.7rem;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.55rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.8rem;
+    }
+
+    .download-card {
+      background: var(--surface-secondary);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 0.9rem;
+    }
+
+    .download-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.28rem;
+    }
+
+    .download-card p {
+      color: var(--text-secondary);
+      font-size: 0.93rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .download-card a {
+      color: #2f46af;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .download-card a:hover {
+      text-decoration: underline;
+    }
+
+    .screenshot-grid {
+      margin-top: 0.9rem;
+      display: grid;
+      gap: 0.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .screenshot-grid img {
+      width: 100%;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a {
+      color: #3045b0;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        grid-template-columns: 1fr;
       }
 
-      .hero,
-      .section {
-        padding: 1rem;
+      .hero-logo {
+        width: 96px;
       }
     }
   </style>
 </head>
 <body>
-  <main class="container">
-   
-    <section class="hero">
-      <img src="https://raw.githubusercontent.com/matveynator/chicha-isotope-map/main/public_html/images/chicha-isotope-map-round-logo.png" alt="Chicha Isotope Map logo" />
-      <h1>Chicha Isotope Map</h1>
-      <p>Download page for the latest stable build: <a href="https://matveynator.github.io/chicha-isotope-map/doc/pages/">matveynator.github.io/chicha-isotope-map/doc/pages</a>.<br />Radiacode, AtomFast, BGeigie Safecast devices supported.</p>
-      <p>
-        <a href="https://github.com/matveynator/chicha-isotope-map/actions/workflows/release.yml">Latest stable release build</a>
-      </p>
-      <div class="hero-links">
-        <a class="btn" href="https://pelora.org/">Live demo</a>
-        <a class="btn alt" href="https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release">All release assets</a>
+  <main class="page">
+    <section class="panel">
+      <div class="hero">
+        <img
+          class="hero-logo"
+          src="https://raw.githubusercontent.com/matveynator/chicha-isotope-map/main/public_html/images/chicha-isotope-map-round-logo.png"
+          alt="Chicha Isotope Map logo"
+        />
+        <div>
+          <h1>Chicha Isotope Map</h1>
+          <p>Simple download page for stable desktop builds. The page automatically picks the best download for your operating system.</p>
+          <div class="button-row">
+            <a class="download-button secondary" href="https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release">All release assets</a>
+            <a class="download-button secondary" href="https://pelora.org/">Live demo</a>
+          </div>
+        </div>
+      </div>
+
+      <section class="recommended" id="recommended-download">
+        <h2 id="recommended-title">Recommended download</h2>
+        <p id="recommended-description">Detecting your system...</p>
+        <a class="download-button primary" id="recommended-link" href="https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release">Open download</a>
+      </section>
+    </section>
+
+    <section class="panel">
+      <h2 class="section-title">Desktop builds</h2>
+      <div class="card-grid">
+        <article class="download-card">
+          <h3>macOS Universal</h3>
+          <p>Recommended for all modern Apple Silicon and Intel Macs.</p>
+          <a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_universal_desktop.app.zip">Download macOS Universal (.app.zip)</a>
+        </article>
+
+        <article class="download-card">
+          <h3>Windows (amd64)</h3>
+          <p>Direct desktop executable for modern Windows systems.</p>
+          <a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64_desktop.exe">Download Windows .exe</a>
+        </article>
+
+        <article class="download-card">
+          <h3>Linux (amd64)</h3>
+          <p>Standalone desktop binary for Linux distributions.</p>
+          <a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop">Download Linux binary</a>
+        </article>
+      </div>
+
+      <div class="screenshot-grid">
+        <img alt="Chicha Isotope Map desktop screenshot" src="./chicha-isotope-map-macosx-universal.png" />
       </div>
     </section>
 
-    <section class="section">
-      <h2>Desktop app (GUI)</h2>
-      <p class="muted">Best for personal local use.</p>
+    <section class="panel">
+      <h2 class="section-title">Other versions</h2>
+      <div class="card-grid">
+        <article class="download-card">
+          <h3>Windows ZIP</h3>
+          <p>Alternative package format for Windows desktop.</p>
+          <a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64_desktop.zip">Download Windows .zip</a>
+        </article>
 
-      <h3>Download</h3>
-      <ul>
-        <li><a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64_desktop.exe">Desktop for Windows (amd64 .exe)</a></li>
-        <li><a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64_desktop.zip">Desktop for Windows (amd64 .zip)</a></li>
-        <li><a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_universal_desktop.app.zip">Desktop for macOS Universal (.app.zip)</a> <strong>← recommended for all modern Macs</strong></li>
-        <li><a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop">Desktop for Linux (amd64)</a></li>
-        <li><a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop.tar.gz">Desktop for Linux (amd64 .tar.gz)</a></li>
-      </ul>
-      <p class="muted">Verified release checksums:</p>
-      <ul>
-        <li><code>chicha-isotope-map_darwin_universal_desktop.app.zip</code> — <code>8710c9ad56ed6bd4930d2790e306c693803be0350d47a486e150de5e84efd98e</code></li>
-        <li><code>chicha-isotope-map_windows_amd64_desktop.exe</code> — <code>7b6fbbc75847afb63e00d8d5514757442f3ccd177b8b00036d20406575245e29</code></li>
-        <li><code>chicha-isotope-map_linux_amd64_desktop</code> — <code>53ea5e9381074c8b6822ba0637ebe426f76f8f7d6ce3e3e29f7dec7675ec923d</code></li>
-      </ul>
+        <article class="download-card">
+          <h3>Linux TAR.GZ</h3>
+          <p>Compressed package for Linux desktop distribution.</p>
+          <a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop.tar.gz">Download Linux .tar.gz</a>
+        </article>
 
-      <h3>Run</h3>
-      <p>Windows:</p>
-      <ol>
-        <li>Download <code>.exe</code></li>
-        <li>Double click</li>
-        <li>If SmartScreen appears: <strong>More info → Run anyway</strong></li>
-      </ol>
-
-      <p>macOS (Universal build):</p>
-      <pre><code>curl -fL https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_universal_desktop.app.zip -o chicha-isotope-map.app.zip
-unzip -o chicha-isotope-map.app.zip
-open ./chicha-isotope-map_darwin_universal_desktop.app</code></pre>
-      <p class="muted">SHA256 (macOS Universal app.zip): <code>8710c9ad56ed6bd4930d2790e306c693803be0350d47a486e150de5e84efd98e</code></p>
-
-      <p>Linux:</p>
-      <pre><code>curl -fL https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop -o chicha-isotope-map-desktop
-chmod +x ./chicha-isotope-map-desktop
-./chicha-isotope-map-desktop</code></pre>
-
-      <h3>Build desktop from source</h3>
-      <p>Desktop WebView builds require CGO.</p>
-
-      <p>macOS/Linux:</p>
-      <pre><code>CGO_ENABLED=1 go build -tags desktop .
-./chicha-isotope-map -desktop</code></pre>
-
-      <p>Server-only binary (no embedded desktop window):</p>
-      <pre><code>CGO_ENABLED=0 go build .
-./chicha-isotope-map</code></pre>
-
-      <h3>Screenshot (macOS Universal desktop app):</h3>
-      <div class="screenshots">
-        <img alt="Chicha Isotope Map macOS universal desktop screenshot" src="./chicha-isotope-map-macosx-universal.png" />
+        <article class="download-card">
+          <h3>Server binaries</h3>
+          <p>Self-hosted server builds for Linux, macOS, Windows and BSD targets.</p>
+          <a href="https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release">Open server assets</a>
+        </article>
       </div>
-    </section>
 
-    <section class="section">
-      <h2>Server version (self-hosted)</h2>
-
-      <h3>Quick start (Linux)</h3>
-      <pre><code>sudo curl -fL https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64 -o /usr/local/bin/chicha-isotope-map; chmod +x /usr/local/bin/chicha-isotope-map; /usr/local/bin/chicha-isotope-map;</code></pre>
-      <p>Open: <a href="http://localhost:8765">http://localhost:8765</a></p>
-
-      <h3>Other server binaries</h3>
-      <ul>
-        <li><a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64.exe">Server for Windows (amd64)</a></li>
-        <li><a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_arm64">Server for macOS arm64</a></li>
-        <li><a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_amd64">Server for macOS amd64</a></li>
-        <li><a href="https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release">All release assets (FreeBSD/OpenBSD/arm64/etc)</a></li>
-      </ul>
-
-      <h3>Public HTTPS domain</h3>
-      <pre><code>./chicha-isotope-map -domain your-domain.example</code></pre>
-      <p>Ports 80/443 must be open.</p>
-
-      <div class="divider"></div>
-
-      <h2>Advanced flags and PostgreSQL</h2>
-
-      <h3>Useful flags</h3>
-      <ul>
-        <li><code>-port 8765</code></li>
-        <li><code>-domain your-domain.example</code></li>
-        <li><code>-default-lat</code>, <code>-default-lon</code>, <code>-default-zoom</code>, <code>-default-layer</code></li>
-        <li><code>-mapbox-token YOUR_TOKEN</code></li>
-        <li><code>-setup</code> (Linux only)</li>
-        <li><code>-import-tgz-url URL</code></li>
-        <li><code>-import-tgz-path /path/to/file.tgz</code></li>
-      </ul>
-
-      <h3>Database flags</h3>
-      <ul>
-        <li><code>-db-type sqlite|duckdb|chai|clickhouse|pgx</code></li>
-        <li><code>-db-path /path/to/file</code></li>
-        <li><code>-db-conn CONNECTION_STRING</code></li>
-      </ul>
-
-      <h3>PostgreSQL example</h3>
-      <pre><code>./chicha-isotope-map \
-  -db-type pgx \
-  -db-conn 'postgres://USER:PASSWORD@HOST:5432/chicha?sslmode=allow' \
-  -port 8765</code></pre>
-
-      <h3>Preload real tracks once</h3>
-      <pre><code>./chicha-isotope-map -import-tgz-url https://pelora.org/api/json/weekly.tgz</code></pre>
-    </section>
-
-    <section class="section">
-      <h2>History and contributors</h2>
-      <p>This project was conceived to grant people a clear and immediate understanding of radiation safety in the very places they inhabit—where they reside, labor, cultivate the land, and draw water.</p>
-      <p>The Chicha Isotope Map finds its roots in the field research of <a href="https://www.youtube.com/@MrDrimogemon">Dmitry Ignatenko</a> and has been profoundly shaped by the insights of Rob Oudendijk and the <a href="https://safecast.org">Safecast community</a>. We extend our sincere appreciation to <a href="https://simplemap.safecast.org">Safecast</a>, <a href="https://atomfast.net">AtomFast</a>, <a href="https://radiacode.com">Radiacode</a>, <a href="https://dosemap.org">DoseMap</a>, and the many contributors to open dosimetry whose efforts made this possible.</p>
-      <p><em>Should this work serve to safeguard even a single living being, its purpose shall be fully justified.</em></p>
+      <div class="footer-links">
+        <a href="https://matveynator.github.io/chicha-isotope-map/doc/pages/">Project documentation</a>
+        <a href="https://github.com/matveynator/chicha-isotope-map/actions/workflows/release.yml">Latest stable build pipeline</a>
+      </div>
     </section>
   </main>
+
+  <script>
+    // The download model is the single source of truth for all target-specific links.
+    const desktopDownloadModel = {
+      macosUniversal: {
+        title: "Recommended for your Mac",
+        description: "Your browser looks like macOS. Use the Universal build for Apple Silicon and Intel Macs.",
+        buttonLabel: "Download for macOS Universal",
+        downloadUrl: "https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_universal_desktop.app.zip"
+      },
+      windowsAmd64: {
+        title: "Recommended for your Windows PC",
+        description: "Your browser looks like Windows. Use the direct desktop executable.",
+        buttonLabel: "Download for Windows",
+        downloadUrl: "https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64_desktop.exe"
+      },
+      linuxAmd64: {
+        title: "Recommended for your Linux system",
+        description: "Your browser looks like Linux. Use the standalone desktop binary.",
+        buttonLabel: "Download for Linux",
+        downloadUrl: "https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop"
+      },
+      fallback: {
+        title: "Recommended download",
+        description: "Could not detect your system exactly. Open all assets and choose your platform.",
+        buttonLabel: "Open all release assets",
+        downloadUrl: "https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release"
+      }
+    };
+
+    function readOperatingSystemFromUserAgent() {
+      const userAgentString = navigator.userAgent || "";
+      const platformString = navigator.platform || "";
+
+      if (/Mac|iPhone|iPad|iPod/i.test(userAgentString) || /Mac/i.test(platformString)) {
+        return "macosUniversal";
+      }
+
+      if (/Win/i.test(userAgentString) || /Win/i.test(platformString)) {
+        return "windowsAmd64";
+      }
+
+      if (/Linux|X11/i.test(userAgentString) || /Linux/i.test(platformString)) {
+        return "linuxAmd64";
+      }
+
+      return "fallback";
+    }
+
+    function renderRecommendedDownload(recommendedDownloadKey) {
+      const recommendedTitleElement = document.getElementById("recommended-title");
+      const recommendedDescriptionElement = document.getElementById("recommended-description");
+      const recommendedLinkElement = document.getElementById("recommended-link");
+
+      const recommendedDownloadState = desktopDownloadModel[recommendedDownloadKey] || desktopDownloadModel.fallback;
+
+      recommendedTitleElement.textContent = recommendedDownloadState.title;
+      recommendedDescriptionElement.textContent = recommendedDownloadState.description;
+      recommendedLinkElement.textContent = recommendedDownloadState.buttonLabel;
+      recommendedLinkElement.href = recommendedDownloadState.downloadUrl;
+    }
+
+    function initializeRecommendedDownload() {
+      const recommendedDownloadKey = readOperatingSystemFromUserAgent();
+      renderRecommendedDownload(recommendedDownloadKey);
+    }
+
+    initializeRecommendedDownload();
+  </script>
 </body>
 </html>
