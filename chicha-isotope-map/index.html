@@ -164,6 +164,9 @@
     }
 
     .recommended h2 {
+      align-items: center;
+      display: inline-flex;
+      gap: 0.45rem;
       font-size: 1.15rem;
       margin-bottom: 0.22rem;
     }
@@ -208,8 +211,31 @@
     }
 
     .card h3 {
+      align-items: center;
+      display: flex;
+      gap: 0.5rem;
       font-size: 1rem;
       margin-bottom: 0.28rem;
+    }
+
+    .platform-icon {
+      align-items: center;
+      background: rgba(126, 165, 255, 0.18);
+      border: 1px solid #32517a;
+      border-radius: 999px;
+      color: #d6e3ff;
+      display: inline-flex;
+      font-size: 0.8rem;
+      font-weight: 700;
+      gap: 0.35rem;
+      letter-spacing: 0.01em;
+      line-height: 1;
+      padding: 0.34rem 0.6rem;
+      white-space: nowrap;
+    }
+
+    .platform-icon-glyph {
+      font-size: 1rem;
     }
 
     .card p {
@@ -316,7 +342,7 @@
       </div>
 
       <section class="recommended" id="recommended-download">
-        <h2 id="recommended-title">Recommended download</h2>
+        <h2><span class="platform-icon" id="recommended-platform-icon"><span class="platform-icon-glyph">🧩</span><span id="recommended-platform-label">Any OS</span></span> <span id="recommended-title">Recommended download</span></h2>
         <p id="recommended-description">Detecting your system...</p>
         <a class="button button-primary" id="recommended-link" href="https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release">Open download</a>
       </section>
@@ -328,7 +354,7 @@
 
       <div class="card-grid">
         <article class="card">
-          <h3>macOS Desktop Universal</h3>
+          <h3><span class="platform-icon"><span class="platform-icon-glyph">🍎</span>macOS</span> macOS Desktop Universal</h3>
           <p>Universal desktop app for Apple Silicon and Intel Macs.</p>
           <p class="safe-note">Delivered as .app.zip.</p>
           <img class="preview-image" alt="macOS desktop preview" src="./chicha-isotope-map-macosx-universal.png" />
@@ -336,7 +362,7 @@
         </article>
 
         <article class="card">
-          <h3>Linux amd64 Desktop</h3>
+          <h3><span class="platform-icon"><span class="platform-icon-glyph">🐧</span>Linux x64</span> Linux amd64 Desktop</h3>
           <p>Desktop build for Linux amd64 hosts.</p>
           <p class="safe-note">Use the ZIP package.</p>
           <img class="preview-image" alt="Linux amd64 desktop preview" src="./linux-arm64-desktop-google.png" />
@@ -344,7 +370,7 @@
         </article>
 
         <article class="card">
-          <h3>Linux arm64 Desktop</h3>
+          <h3><span class="platform-icon"><span class="platform-icon-glyph">🐧</span>Linux ARM64</span> Linux arm64 Desktop</h3>
           <p>Desktop build for Linux arm64 hosts.</p>
           <p class="safe-note">Use the ZIP package.</p>
           <img class="preview-image" alt="Linux arm64 desktop preview" src="./linux-arm64-desktop-osm-dark.png" />
@@ -352,7 +378,7 @@
         </article>
 
         <article class="card">
-          <h3>Windows amd64 Desktop</h3>
+          <h3><span class="platform-icon"><span class="platform-icon-glyph">🪟</span>Windows x64</span> Windows amd64 Desktop</h3>
           <p>Desktop build for modern Windows amd64 systems.</p>
           <p class="safe-note">Use the ZIP package.</p>
           <img class="preview-image" alt="Windows amd64 desktop preview" src="./windows-osm-dark.png" />
@@ -360,7 +386,7 @@
         </article>
 
         <article class="card">
-          <h3>Windows arm64 Desktop</h3>
+          <h3><span class="platform-icon"><span class="platform-icon-glyph">🪟</span>Windows ARM64</span> Windows arm64 Desktop</h3>
           <p>Desktop build for Windows arm64 systems.</p>
           <p class="safe-note">Use the ZIP package.</p>
           <img class="preview-image" alt="Windows arm64 desktop preview" src="./windows-goog-light.png" />
@@ -403,24 +429,32 @@
     // The download model is the single source of truth for all target-specific links.
     const desktopDownloadModel = {
       macosUniversal: {
+        platformIconGlyph: "🍎",
+        platformLabel: "macOS",
         title: "Recommended for your Mac",
         description: "Your browser looks like macOS. Use the Universal desktop ZIP for Apple Silicon and Intel Macs.",
         buttonLabel: "Download macOS Universal ZIP",
         downloadUrl: "https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_universal_desktop.app.zip"
       },
       windowsAmd64: {
+        platformIconGlyph: "🪟",
+        platformLabel: "Windows",
         title: "Recommended for your Windows PC",
         description: "Your browser looks like Windows. Use the desktop ZIP package.",
         buttonLabel: "Download Windows amd64 ZIP",
         downloadUrl: "https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64_desktop.zip"
       },
       linuxAmd64: {
+        platformIconGlyph: "🐧",
+        platformLabel: "Linux",
         title: "Recommended for your Linux system",
         description: "Your browser looks like Linux. Use the Linux amd64 desktop ZIP package.",
         buttonLabel: "Download Linux amd64 ZIP",
         downloadUrl: "https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop.zip"
       },
       fallback: {
+        platformIconGlyph: "🧩",
+        platformLabel: "Any OS",
         title: "Recommended download",
         description: "Could not detect your system exactly. Open all release assets and choose your platform ZIP build.",
         buttonLabel: "Open all release assets",
@@ -451,6 +485,8 @@
       const recommendedTitleElement = document.getElementById("recommended-title");
       const recommendedDescriptionElement = document.getElementById("recommended-description");
       const recommendedLinkElement = document.getElementById("recommended-link");
+      const recommendedPlatformIconElement = document.getElementById("recommended-platform-icon");
+      const recommendedPlatformLabelElement = document.getElementById("recommended-platform-label");
 
       const recommendedDownloadState = desktopDownloadModel[recommendedDownloadKey] || desktopDownloadModel.fallback;
 
@@ -458,6 +494,8 @@
       recommendedDescriptionElement.textContent = recommendedDownloadState.description;
       recommendedLinkElement.textContent = recommendedDownloadState.buttonLabel;
       recommendedLinkElement.href = recommendedDownloadState.downloadUrl;
+      recommendedPlatformIconElement.querySelector(".platform-icon-glyph").textContent = recommendedDownloadState.platformIconGlyph;
+      recommendedPlatformLabelElement.textContent = recommendedDownloadState.platformLabel;
     }
 
     function initializeRecommendedDownload() {
