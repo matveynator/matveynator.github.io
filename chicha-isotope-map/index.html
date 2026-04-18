@@ -4,22 +4,23 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Chicha Isotope Map — Download</title>
-  <meta name="description" content="Clean download page for Chicha Isotope Map desktop and server builds." />
+  <meta name="description" content="Download page for Chicha Isotope Map desktop and server builds." />
   <style>
     :root {
-      color-scheme: light;
-      --background: #f3f6ff;
-      --surface: #ffffff;
-      --surface-secondary: #f8faff;
-      --text-primary: #11162a;
-      --text-secondary: #5a6382;
-      --line: #e0e7ff;
-      --primary: #4567ff;
-      --primary-strong: #334eff;
-      --radius-xl: 24px;
+      color-scheme: dark;
+      --color-black: #060707;
+      --color-black-soft: #101315;
+      --color-safe: #2ed06b;
+      --color-safe-strong: #12b050;
+      --color-warning: #eac43b;
+      --color-danger: #e14545;
+      --color-ink: #f2f5f7;
+      --color-muted: #b8c0c6;
+      --color-line: #253038;
+      --radius-xl: 26px;
       --radius-lg: 18px;
-      --radius-md: 14px;
-      --shadow: 0 24px 50px -35px rgba(42, 65, 170, 0.45);
+      --radius-md: 12px;
+      --section-shadow: 0 26px 56px -42px rgba(0, 0, 0, 0.75);
     }
 
     * {
@@ -30,172 +31,252 @@
 
     body {
       background:
-        radial-gradient(85rem 35rem at 0% -20%, rgba(87, 122, 255, 0.2), transparent 46%),
-        radial-gradient(85rem 35rem at 100% -20%, rgba(72, 188, 255, 0.2), transparent 46%),
-        var(--background);
-      color: var(--text-primary);
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.5;
+        linear-gradient(rgba(6, 7, 7, 0.86), rgba(6, 7, 7, 0.92)),
+        url("./chicha-isotope-map-macosx-universal.png") center top / cover fixed;
+      color: var(--color-ink);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
       min-height: 100vh;
-      padding: 1.2rem;
+      padding: 1rem;
     }
 
     .page {
       margin: 0 auto;
-      max-width: 1020px;
+      max-width: 1180px;
     }
 
-    .panel {
-      background: var(--surface);
-      border: 1px solid var(--line);
+    .hero-panel {
+      background:
+        linear-gradient(145deg, rgba(16, 19, 21, 0.94), rgba(16, 19, 21, 0.88)),
+        radial-gradient(circle at 80% -20%, rgba(234, 196, 59, 0.2), transparent 45%),
+        radial-gradient(circle at 0% -30%, rgba(46, 208, 107, 0.22), transparent 50%);
+      border: 1px solid var(--color-line);
       border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-      margin-bottom: 1rem;
-      padding: 1.35rem;
+      box-shadow: var(--section-shadow);
+      overflow: hidden;
+      padding: 2rem;
+      position: relative;
     }
 
-    .hero {
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      right: -140px;
+      bottom: -120px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(225, 69, 69, 0.25) 0%, rgba(225, 69, 69, 0) 68%);
+      pointer-events: none;
+    }
+
+    .hero-layout {
       display: grid;
-      gap: 1rem;
-      grid-template-columns: 120px 1fr;
+      gap: 1.4rem;
+      grid-template-columns: 130px 1fr;
       align-items: center;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-logo {
-      width: 100%;
+      width: 130px;
       border-radius: 22px;
-      border: 1px solid var(--line);
+      border: 1px solid #2f3a43;
       background: #fff;
       padding: 0.6rem;
     }
 
-    .hero h1 {
-      font-size: clamp(1.6rem, 4vw, 2.3rem);
-      letter-spacing: -0.02em;
+    .hero-title {
+      font-size: clamp(1.8rem, 4.1vw, 2.6rem);
       line-height: 1.15;
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.5rem;
     }
 
-    .hero p {
-      color: var(--text-secondary);
-      max-width: 720px;
+    .hero-copy {
+      color: var(--color-muted);
+      max-width: 700px;
     }
 
-    .button-row {
+    .status-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.65rem;
-      margin-top: 0.9rem;
-    }
-
-    .download-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      border-radius: 11px;
-      padding: 0.6rem 1rem;
-      text-decoration: none;
-      transition: transform 0.12s ease;
-    }
-
-    .download-button:hover {
-      transform: translateY(-1px);
-    }
-
-    .download-button.primary {
-      background: linear-gradient(180deg, var(--primary), var(--primary-strong));
-      color: #fff;
-    }
-
-    .download-button.secondary {
-      background: #edf2ff;
-      color: #2e43a9;
-    }
-
-    .recommended {
-      background: linear-gradient(165deg, #ffffff 0%, #f5f8ff 100%);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 1.1rem;
       margin-top: 1rem;
     }
 
-    .recommended h2 {
-      font-size: 1.1rem;
-      margin-bottom: 0.2rem;
+    .status-pill {
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      padding: 0.25rem 0.7rem;
     }
 
-    .recommended p {
-      color: var(--text-secondary);
+    .status-pill.safe {
+      background: rgba(46, 208, 107, 0.18);
+      border: 1px solid rgba(46, 208, 107, 0.7);
+      color: #83f7ac;
+    }
+
+    .status-pill.warning {
+      background: rgba(234, 196, 59, 0.18);
+      border: 1px solid rgba(234, 196, 59, 0.7);
+      color: #ffe285;
+    }
+
+    .status-pill.danger {
+      background: rgba(225, 69, 69, 0.2);
+      border: 1px solid rgba(225, 69, 69, 0.7);
+      color: #ff9999;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+
+    .button {
+      align-items: center;
+      border: 1px solid transparent;
+      border-radius: 11px;
+      cursor: pointer;
+      display: inline-flex;
+      font-size: 0.95rem;
+      font-weight: 700;
+      justify-content: center;
+      padding: 0.62rem 1.05rem;
+      text-decoration: none;
+      transition: transform 0.14s ease, box-shadow 0.14s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-safe {
+      background: linear-gradient(180deg, var(--color-safe), var(--color-safe-strong));
+      box-shadow: 0 18px 34px -24px rgba(46, 208, 107, 0.95);
+      color: #031008;
+    }
+
+    .button-neutral {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: #3a454e;
+      color: #ebeff2;
+    }
+
+    .recommended-box {
+      background: rgba(9, 11, 12, 0.78);
+      border: 1px solid #27313a;
+      border-radius: var(--radius-lg);
+      margin-top: 1.2rem;
+      padding: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .recommended-box h2 {
+      font-size: 1.14rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .recommended-box p {
+      color: var(--color-muted);
       margin-bottom: 0.7rem;
     }
 
+    .content-section {
+      background: rgba(12, 15, 17, 0.92);
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--section-shadow);
+      margin-top: 1rem;
+      padding: 1.15rem;
+    }
+
     .section-title {
-      font-size: 1.25rem;
+      border-bottom: 1px solid var(--color-line);
+      color: var(--color-ink);
+      font-size: 1.22rem;
       margin-bottom: 0.8rem;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 0.55rem;
+      padding-bottom: 0.5rem;
     }
 
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 0.8rem;
+      gap: 0.85rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
 
     .download-card {
-      background: var(--surface-secondary);
-      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(20, 24, 27, 0.96), rgba(15, 18, 20, 0.96));
+      border: 1px solid #2a343d;
       border-radius: var(--radius-md);
-      padding: 0.9rem;
+      padding: 0.88rem;
     }
 
     .download-card h3 {
-      font-size: 1rem;
-      margin-bottom: 0.28rem;
+      font-size: 0.99rem;
+      margin-bottom: 0.32rem;
     }
 
     .download-card p {
-      color: var(--text-secondary);
-      font-size: 0.93rem;
-      margin-bottom: 0.55rem;
+      color: var(--color-muted);
+      font-size: 0.92rem;
+      margin-bottom: 0.58rem;
     }
 
-    .download-card a {
-      color: #2f46af;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .download-card a:hover {
-      text-decoration: underline;
-    }
-
-    .screenshot-grid {
-      margin-top: 0.9rem;
-      display: grid;
-      gap: 0.8rem;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-
-    .screenshot-grid img {
+    .preview-image {
+      border: 1px solid #2e3a43;
+      border-radius: 10px;
+      display: block;
+      margin-bottom: 0.6rem;
       width: 100%;
+    }
+
+    .snippet-grid {
+      display: grid;
+      gap: 0.85rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .snippet-card {
+      background: #0a0d0f;
+      border: 1px solid #2a343d;
       border-radius: var(--radius-md);
-      border: 1px solid var(--line);
-      background: #fff;
+      padding: 0.85rem;
+    }
+
+    .snippet-card h3 {
+      color: var(--color-warning);
+      font-size: 0.96rem;
+      margin-bottom: 0.45rem;
+    }
+
+    pre {
+      background: #040506;
+      border: 1px solid #20272d;
+      border-radius: 10px;
+      color: #9cffb7;
+      font-family: "JetBrains Mono", "Fira Code", Consolas, Monaco, monospace;
+      font-size: 0.84rem;
+      overflow-x: auto;
+      padding: 0.7rem;
+      white-space: pre;
     }
 
     .footer-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
+      gap: 0.85rem;
       margin-top: 1rem;
-      font-size: 0.95rem;
     }
 
     .footer-links a {
-      color: #3045b0;
+      color: #90ffb6;
       text-decoration: none;
     }
 
@@ -203,93 +284,132 @@
       text-decoration: underline;
     }
 
-    @media (max-width: 720px) {
-      .hero {
+    @media (max-width: 760px) {
+      .hero-panel {
+        padding: 1.45rem;
+      }
+
+      .hero-layout {
         grid-template-columns: 1fr;
       }
 
       .hero-logo {
-        width: 96px;
+        width: 102px;
       }
     }
   </style>
 </head>
 <body>
   <main class="page">
-    <section class="panel">
-      <div class="hero">
+    <section class="hero-panel">
+      <div class="hero-layout">
         <img
           class="hero-logo"
           src="https://raw.githubusercontent.com/matveynator/chicha-isotope-map/main/public_html/images/chicha-isotope-map-round-logo.png"
           alt="Chicha Isotope Map logo"
         />
         <div>
-          <h1>Chicha Isotope Map</h1>
-          <p>Simple download page for stable desktop builds. The page automatically picks the best download for your operating system.</p>
-          <div class="button-row">
-            <a class="download-button secondary" href="https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release">All release assets</a>
-            <a class="download-button secondary" href="https://pelora.org/">Live demo</a>
+          <h1 class="hero-title">Chicha Isotope Map</h1>
+          <p class="hero-copy">Security-first download page with clear risk colors: green for safe release channels, yellow for attention, red for danger indicators, and deep black as the core background.</p>
+
+          <div class="status-row">
+            <span class="status-pill safe">Safe channel</span>
+            <span class="status-pill warning">Attention notes</span>
+            <span class="status-pill danger">Danger awareness</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button button-safe" href="https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release">All release assets</a>
+            <a class="button button-neutral" href="https://pelora.org/">Live demo</a>
           </div>
         </div>
       </div>
 
-      <section class="recommended" id="recommended-download">
+      <section class="recommended-box" id="recommended-download">
         <h2 id="recommended-title">Recommended download</h2>
         <p id="recommended-description">Detecting your system...</p>
-        <a class="download-button primary" id="recommended-link" href="https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release">Open download</a>
+        <a class="button button-safe" id="recommended-link" href="https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release">Open download</a>
       </section>
     </section>
 
-    <section class="panel">
-      <h2 class="section-title">Desktop builds</h2>
+    <section class="content-section">
+      <h2 class="section-title">Desktop builds with preview</h2>
       <div class="card-grid">
         <article class="download-card">
-          <h3>macOS Universal</h3>
-          <p>Recommended for all modern Apple Silicon and Intel Macs.</p>
-          <a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_universal_desktop.app.zip">Download macOS Universal (.app.zip)</a>
+          <h3>macOS Desktop Universal</h3>
+          <p>Universal desktop app for Apple Silicon and Intel Macs.</p>
+          <img class="preview-image" alt="macOS desktop preview" src="./chicha-isotope-map-macosx-universal.png" />
+          <a class="button button-safe" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_universal_desktop.app.zip">Download macOS Universal</a>
         </article>
 
         <article class="download-card">
-          <h3>Windows (amd64)</h3>
-          <p>Direct desktop executable for modern Windows systems.</p>
-          <a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64_desktop.exe">Download Windows .exe</a>
+          <h3>Linux amd64 Desktop</h3>
+          <p>Desktop binary for Linux amd64 hosts.</p>
+          <img class="preview-image" alt="Linux amd64 desktop preview" src="./chicha-isotope-map-macosx-universal.png" />
+          <a class="button button-safe" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop">Download Linux amd64</a>
         </article>
 
         <article class="download-card">
-          <h3>Linux (amd64)</h3>
-          <p>Standalone desktop binary for Linux distributions.</p>
-          <a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop">Download Linux binary</a>
+          <h3>Linux arm64 Desktop</h3>
+          <p>Desktop binary for Linux arm64 hosts.</p>
+          <img class="preview-image" alt="Linux arm64 desktop preview" src="./chicha-isotope-map-macosx-universal.png" />
+          <a class="button button-safe" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_arm64_desktop">Download Linux arm64</a>
         </article>
-      </div>
 
-      <div class="screenshot-grid">
-        <img alt="Chicha Isotope Map desktop screenshot" src="./chicha-isotope-map-macosx-universal.png" />
+        <article class="download-card">
+          <h3>Windows amd64 Desktop</h3>
+          <p>Desktop executable for modern Windows amd64 systems.</p>
+          <img class="preview-image" alt="Windows amd64 desktop preview" src="./chicha-isotope-map-macosx-universal.png" />
+          <a class="button button-safe" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64_desktop.exe">Download Windows amd64</a>
+        </article>
+
+        <article class="download-card">
+          <h3>Windows arm64 Desktop</h3>
+          <p>Desktop executable for Windows arm64 systems.</p>
+          <img class="preview-image" alt="Windows arm64 desktop preview" src="./chicha-isotope-map-macosx-universal.png" />
+          <a class="button button-safe" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_arm64_desktop.exe">Download Windows arm64</a>
+        </article>
       </div>
     </section>
 
-    <section class="panel">
-      <h2 class="section-title">Other versions</h2>
-      <div class="card-grid">
-        <article class="download-card">
-          <h3>Windows ZIP</h3>
-          <p>Alternative package format for Windows desktop.</p>
-          <a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64_desktop.zip">Download Windows .zip</a>
+    <section class="content-section">
+      <h2 class="section-title">Server quick install snippets</h2>
+      <div class="snippet-grid">
+        <article class="snippet-card">
+          <h3>Linux amd64 (main)</h3>
+          <pre>curl -L -o chicha-isotope-map \
+  https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_server
+chmod +x chicha-isotope-map
+./chicha-isotope-map</pre>
         </article>
 
-        <article class="download-card">
-          <h3>Linux TAR.GZ</h3>
-          <p>Compressed package for Linux desktop distribution.</p>
-          <a href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop.tar.gz">Download Linux .tar.gz</a>
+        <article class="snippet-card">
+          <h3>FreeBSD amd64</h3>
+          <pre>fetch -o chicha-isotope-map \
+  https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_freebsd_amd64_server
+chmod +x chicha-isotope-map
+./chicha-isotope-map</pre>
         </article>
 
-        <article class="download-card">
-          <h3>Server binaries</h3>
-          <p>Self-hosted server builds for Linux, macOS, Windows and BSD targets.</p>
-          <a href="https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release">Open server assets</a>
+        <article class="snippet-card">
+          <h3>OpenBSD amd64</h3>
+          <pre>ftp -o chicha-isotope-map \
+  https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_openbsd_amd64_server
+chmod +x chicha-isotope-map
+./chicha-isotope-map</pre>
+        </article>
+
+        <article class="snippet-card">
+          <h3>NetBSD amd64</h3>
+          <pre>ftp -o chicha-isotope-map \
+  https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_netbsd_amd64_server
+chmod +x chicha-isotope-map
+./chicha-isotope-map</pre>
         </article>
       </div>
 
       <div class="footer-links">
+        <a href="https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release">Other platforms: open full release assets</a>
         <a href="https://matveynator.github.io/chicha-isotope-map/doc/pages/">Project documentation</a>
         <a href="https://github.com/matveynator/chicha-isotope-map/actions/workflows/release.yml">Latest stable build pipeline</a>
       </div>
@@ -301,25 +421,25 @@
     const desktopDownloadModel = {
       macosUniversal: {
         title: "Recommended for your Mac",
-        description: "Your browser looks like macOS. Use the Universal build for Apple Silicon and Intel Macs.",
-        buttonLabel: "Download for macOS Universal",
+        description: "Your browser looks like macOS. Use the Universal desktop build for Apple Silicon and Intel Macs.",
+        buttonLabel: "Download macOS Universal",
         downloadUrl: "https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_universal_desktop.app.zip"
       },
       windowsAmd64: {
         title: "Recommended for your Windows PC",
-        description: "Your browser looks like Windows. Use the direct desktop executable.",
-        buttonLabel: "Download for Windows",
+        description: "Your browser looks like Windows. Use the desktop executable.",
+        buttonLabel: "Download Windows amd64",
         downloadUrl: "https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64_desktop.exe"
       },
       linuxAmd64: {
         title: "Recommended for your Linux system",
-        description: "Your browser looks like Linux. Use the standalone desktop binary.",
-        buttonLabel: "Download for Linux",
+        description: "Your browser looks like Linux. Use the Linux desktop binary.",
+        buttonLabel: "Download Linux amd64",
         downloadUrl: "https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop"
       },
       fallback: {
         title: "Recommended download",
-        description: "Could not detect your system exactly. Open all assets and choose your platform.",
+        description: "Could not detect your system exactly. Open all release assets and choose your platform.",
         buttonLabel: "Open all release assets",
         downloadUrl: "https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release"
       }
