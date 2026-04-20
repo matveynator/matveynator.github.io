@@ -163,6 +163,11 @@
     .card h3 { font-size: 0.98rem; margin-bottom: 0.35rem; }
     .card p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.52rem; }
     .safe-note { color: var(--safe); font-weight: 700; font-size: 0.82rem; }
+    .subsection-title {
+      color: var(--text-accent);
+      font-size: 1rem;
+      margin: 0.9rem 0 0.55rem;
+    }
 
     .preview-image {
       border-radius: 10px;
@@ -183,16 +188,13 @@
       align-items: center;
       background: white;
       border-bottom: 1px solid var(--line-soft);
-      display: grid;
-      gap: 0.5rem;
-      grid-template-columns: 1fr auto;
+      display: block;
       padding: 0.6rem 0.75rem;
     }
 
     .asset-list li:last-child { border-bottom: none; }
 
-    .asset-label { font-weight: 600; }
-    .asset-meta { color: var(--text-secondary); font-size: 0.82rem; }
+    .asset-label { display: block; font-weight: 600; width: 100%; }
 
     .helper-note {
       background: #fffbe9;
@@ -255,7 +257,7 @@
         />
         <div>
           <h1 class="hero-title">Chicha Isotope Map Download</h1>
-          <p class="hero-copy">The page now auto-detects OS + CPU architecture and gives Linux users both GTK variants (GTK 4.0 and GTK 4.1) with distro hints (Mint/Ubuntu/Debian/Fedora-like families).</p>
+          <p class="hero-copy">Choose your OS first, then your architecture. Linux desktop builds are available for both GTK 4.0 and GTK 4.1 on amd64 and arm64.</p>
           <div class="actions">
             <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release">All release assets</a>
           </div>
@@ -276,20 +278,26 @@
     </section>
 
     <section class="section">
-      <h2 class="section-title">Quick desktop picks</h2>
-      <p class="section-copy">Ready-to-run desktop bundles for the most common targets.</p>
+      <h2 class="section-title">Desktop downloads — macOS</h2>
+      <p class="section-copy">DMG installer for Mac desktop users.</p>
       <div class="card-grid">
         <article class="card">
-          <h3><span class="platform-icon">🍎 macOS</span> Universal Desktop App ZIP</h3>
+          <h3><span class="platform-icon">🍎 macOS</span> Universal Desktop DMG</h3>
           <p>Single artifact for Intel + Apple Silicon.</p>
-          <p class="safe-note">File: .app.zip</p>
+          <p class="safe-note">File: .dmg</p>
           <img class="preview-image" alt="macOS desktop preview" src="./chicha-isotope-map-macosx-universal.png" />
-          <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_universal_desktop.app.zip">Download macOS universal desktop</a>
+          <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_universal_desktop.dmg">Download macOS universal DMG</a>
         </article>
+      </div>
+    </section>
 
+    <section class="section">
+      <h2 class="section-title">Desktop downloads — Windows</h2>
+      <p class="section-copy">Pick your Windows architecture.</p>
+      <div class="card-grid">
         <article class="card">
           <h3><span class="platform-icon">🪟 Windows</span> AMD64 Desktop ZIP</h3>
-          <p>Best for regular Intel/AMD x64 Windows PCs.</p>
+          <p>For most Intel/AMD Windows PCs.</p>
           <img class="preview-image" alt="Windows desktop preview" src="./windows-osm-light.png" />
           <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64_desktop.zip">Download Windows amd64 desktop</a>
         </article>
@@ -300,34 +308,75 @@
           <img class="preview-image" alt="Windows ARM desktop preview" src="./windows-google-light.png" />
           <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_arm64_desktop.zip">Download Windows arm64 desktop</a>
         </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Desktop downloads — Linux</h2>
+      <p class="section-copy">Choose GTK runtime first, then architecture.</p>
+      <h3 class="subsection-title">GTK 4.0 builds</h3>
+      <div class="card-grid">
+        <article class="card">
+          <h3><span class="platform-icon">🐧 Linux AMD64</span> GTK 4.0 Desktop ZIP</h3>
+          <p>For older GTK 4.0-based desktop stacks.</p>
+          <img class="preview-image" alt="Linux amd64 GTK 4.0 desktop preview" src="./linux-amd64-desktop.png" />
+          <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop_gtk40.zip">Download Linux amd64 GTK 4.0</a>
+        </article>
 
         <article class="card">
-          <h3><span class="platform-icon">🐧 Linux</span> AMD64 GTK 4.1 Desktop ZIP</h3>
-          <p>For newer desktop stacks (Mint 22+, Ubuntu 24.04+, Fedora 40+).</p>
-          <img class="preview-image" alt="Linux desktop preview" src="./linux-amd64-desktop.png" />
+          <h3><span class="platform-icon">🐧 Linux ARM64</span> GTK 4.0 Desktop ZIP</h3>
+          <p>For ARM64 Linux systems with GTK 4.0.</p>
+          <img class="preview-image" alt="Linux arm64 GTK 4.0 desktop preview" src="./linux-arm64-desktop.png" />
+          <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_arm64_desktop_gtk40.zip">Download Linux arm64 GTK 4.0</a>
+        </article>
+      </div>
+
+      <h3 class="subsection-title">GTK 4.1 builds</h3>
+      <div class="card-grid">
+        <article class="card">
+          <h3><span class="platform-icon">🐧 Linux AMD64</span> GTK 4.1 Desktop ZIP</h3>
+          <p>For newer GTK 4.1-based desktop stacks.</p>
+          <img class="preview-image" alt="Linux amd64 GTK 4.1 desktop preview" src="./linux-amd64-desktop.png" />
           <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop_gtk41.zip">Download Linux amd64 GTK 4.1</a>
+        </article>
+
+        <article class="card">
+          <h3><span class="platform-icon">🐧 Linux ARM64</span> GTK 4.1 Desktop ZIP</h3>
+          <p>For ARM64 Linux systems with GTK 4.1.</p>
+          <img class="preview-image" alt="Linux arm64 GTK 4.1 desktop preview" src="./linux-arm64-desktop.png" />
+          <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_arm64_desktop_gtk41.zip">Download Linux arm64 GTK 4.1</a>
         </article>
       </div>
     </section>
 
     <section class="section">
       <h2 class="section-title">All release artifacts by platform</h2>
-      <p class="section-copy">If auto-detection is wrong in your browser, choose manually from the full list below. Desktop artifacts are ZIP-only.</p>
+      <p class="section-copy">If auto-detection is wrong, choose manually.</p>
       <div class="card-grid" id="all-artifacts"></div>
     </section>
 
     <section class="section" id="server-install-section">
       <h2 class="section-title">Server install and run</h2>
-      <p class="section-copy">Shell install snippets download into <code>/usr/local/bin</code>, set executable bit, and run. For Linux, use the systemd setup snippet to run as a service.</p>
+      <p class="section-copy">Use the matching OS + architecture snippet.</p>
       <div class="snippet-grid">
         <article class="snippet-card">
-          <h3>Linux quick install (auto architecture)</h3>
-          <pre id="linux-server-install-command">Detecting Linux architecture...</pre>
+          <h3>Linux amd64 quick install</h3>
+          <pre id="linux-server-install-command-amd64">Loading...</pre>
         </article>
 
         <article class="snippet-card">
-          <h3>Linux systemd service setup</h3>
-          <pre id="linux-systemd-install-command">Detecting Linux architecture...</pre>
+          <h3>Linux arm64 quick install</h3>
+          <pre id="linux-server-install-command-arm64">Loading...</pre>
+        </article>
+
+        <article class="snippet-card">
+          <h3>Linux amd64 systemd setup</h3>
+          <pre id="linux-systemd-install-command-amd64">Loading...</pre>
+        </article>
+
+        <article class="snippet-card">
+          <h3>Linux arm64 systemd setup</h3>
+          <pre id="linux-systemd-install-command-arm64">Loading...</pre>
         </article>
 
         <article class="snippet-card">
@@ -338,8 +387,22 @@ sudo chmod +x /usr/local/bin/chicha-isotope-map
         </article>
 
         <article class="snippet-card">
+          <h3>FreeBSD arm64 quick install</h3>
+          <pre>sudo fetch -o /usr/local/bin/chicha-isotope-map https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_freebsd_arm64
+sudo chmod +x /usr/local/bin/chicha-isotope-map
+/usr/local/bin/chicha-isotope-map</pre>
+        </article>
+
+        <article class="snippet-card">
           <h3>OpenBSD amd64 quick install</h3>
           <pre>sudo ftp -o /usr/local/bin/chicha-isotope-map https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_openbsd_amd64
+sudo chmod +x /usr/local/bin/chicha-isotope-map
+/usr/local/bin/chicha-isotope-map</pre>
+        </article>
+
+        <article class="snippet-card">
+          <h3>OpenBSD arm64 quick install</h3>
+          <pre>sudo ftp -o /usr/local/bin/chicha-isotope-map https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_openbsd_arm64
 sudo chmod +x /usr/local/bin/chicha-isotope-map
 /usr/local/bin/chicha-isotope-map</pre>
         </article>
@@ -358,16 +421,16 @@ sudo chmod +x /usr/local/bin/chicha-isotope-map
         ["chicha-isotope-map_darwin_arm64", "macOS arm64"],
         ["chicha-isotope-map_darwin_amd64_duckdb", "macOS amd64 duckdb"],
         ["chicha-isotope-map_darwin_arm64_duckdb", "macOS arm64 duckdb"],
-        ["chicha-isotope-map_darwin_universal_desktop.app.zip", "macOS universal desktop app zip"]
+        ["chicha-isotope-map_darwin_universal_desktop.dmg", "macOS universal desktop dmg"]
       ],
       linux: [
         ["chicha-isotope-map_linux_386", "Linux 386"],
         ["chicha-isotope-map_linux_amd64", "Linux amd64"],
         ["chicha-isotope-map_linux_arm64", "Linux arm64"],
-        ["chicha-isotope-map_linux_amd64_desktop_gtk40.zip", "Linux amd64 desktop GTK 4.0 zip"],
-        ["chicha-isotope-map_linux_amd64_desktop_gtk41.zip", "Linux amd64 desktop GTK 4.1 zip"],
-        ["chicha-isotope-map_linux_arm64_desktop_gtk40.zip", "Linux arm64 desktop GTK 4.0 zip"],
-        ["chicha-isotope-map_linux_arm64_desktop_gtk41.zip", "Linux arm64 desktop GTK 4.1 zip"]
+        ["chicha-isotope-map_linux_amd64_desktop_gtk40.zip", "Linux amd64 GTK 4.0"],
+        ["chicha-isotope-map_linux_amd64_desktop_gtk41.zip", "Linux amd64 GTK 4.1"],
+        ["chicha-isotope-map_linux_arm64_desktop_gtk40.zip", "Linux arm64 GTK 4.0"],
+        ["chicha-isotope-map_linux_arm64_desktop_gtk41.zip", "Linux arm64 GTK 4.1"]
       ],
       windows: [
         ["chicha-isotope-map_windows_amd64.exe", "Windows amd64"],
@@ -381,10 +444,6 @@ sudo chmod +x /usr/local/bin/chicha-isotope-map
         ["chicha-isotope-map_netbsd_amd64", "NetBSD amd64"],
         ["chicha-isotope-map_openbsd_amd64", "OpenBSD amd64"],
         ["chicha-isotope-map_openbsd_arm64", "OpenBSD arm64"]
-      ],
-      assets: [
-        ["chicha-isotope-map.png", "PNG icon"],
-        ["windows-desktop-icon.ico", "Windows icon"]
       ]
     };
 
@@ -446,13 +505,7 @@ sudo chmod +x /usr/local/bin/chicha-isotope-map
         link.className = "asset-label";
         link.textContent = label;
         link.href = `${releaseRoot}${filename}`;
-
-        const meta = document.createElement("span");
-        meta.className = "asset-meta";
-        meta.textContent = filename;
-
         listItem.appendChild(link);
-        listItem.appendChild(meta);
         list.appendChild(listItem);
       }
 
@@ -466,7 +519,6 @@ sudo chmod +x /usr/local/bin/chicha-isotope-map
       container.appendChild(createArtifactList("🐧 Linux", artifactCatalog.linux));
       container.appendChild(createArtifactList("🪟 Windows", artifactCatalog.windows));
       container.appendChild(createArtifactList("🧪 BSD", artifactCatalog.bsd));
-      container.appendChild(createArtifactList("🧷 Extra assets", artifactCatalog.assets));
     }
 
 
@@ -508,13 +560,16 @@ sudo chmod +x /usr/local/bin/chicha-isotope-map
       ].join("\n");
     }
 
-    function renderServerInstallSnippets(architecture) {
-      const linuxServerInstallElement = document.getElementById("linux-server-install-command");
-      const linuxSystemdInstallElement = document.getElementById("linux-systemd-install-command");
-      const linuxServerArchitecture = architecture === "arm64" ? "arm64" : "amd64";
+    function renderServerInstallSnippets() {
+      const linuxServerInstallAmd64 = document.getElementById("linux-server-install-command-amd64");
+      const linuxServerInstallArm64 = document.getElementById("linux-server-install-command-arm64");
+      const linuxSystemdInstallAmd64 = document.getElementById("linux-systemd-install-command-amd64");
+      const linuxSystemdInstallArm64 = document.getElementById("linux-systemd-install-command-arm64");
 
-      linuxServerInstallElement.textContent = buildLinuxServerInstallCommand(linuxServerArchitecture);
-      linuxSystemdInstallElement.textContent = buildLinuxSystemdInstallCommand(linuxServerArchitecture);
+      linuxServerInstallAmd64.textContent = buildLinuxServerInstallCommand("amd64");
+      linuxServerInstallArm64.textContent = buildLinuxServerInstallCommand("arm64");
+      linuxSystemdInstallAmd64.textContent = buildLinuxSystemdInstallCommand("amd64");
+      linuxSystemdInstallArm64.textContent = buildLinuxSystemdInstallCommand("arm64");
     }
 
     function makeDownloadButton(label, href, primary = true) {
@@ -601,9 +656,9 @@ sudo chmod +x /usr/local/bin/chicha-isotope-map
           platformGlyph: "🍎",
           platformLabel: "macOS",
           title: "Recommended for your Mac",
-          description: "Use the universal desktop app ZIP (works on both Apple Silicon and Intel).",
+          description: "Use the universal DMG installer (works on both Apple Silicon and Intel).",
           actions: [
-            { label: "Download macOS universal desktop", href: `${releaseRoot}chicha-isotope-map_darwin_universal_desktop.app.zip`, primary: true },
+            { label: "Download macOS universal DMG", href: `${releaseRoot}chicha-isotope-map_darwin_universal_desktop.dmg`, primary: true },
             { label: "Open all assets", href: allAssetsUrl, primary: false }
           ],
           showLinuxHelper: false
@@ -630,7 +685,7 @@ sudo chmod +x /usr/local/bin/chicha-isotope-map
       const normalizedArchitecture = architecture === "unknown" ? "amd64" : architecture;
       const recommendation = buildRecommendationForKnownPlatform(operatingSystem, normalizedArchitecture);
       renderRecommendation(recommendation);
-      renderServerInstallSnippets(normalizedArchitecture);
+      renderServerInstallSnippets();
     }
 
     initializePage();
