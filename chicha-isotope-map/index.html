@@ -204,6 +204,39 @@
       padding: 0.55rem 0.7rem;
     }
 
+
+    .snippet-grid {
+      display: grid;
+      gap: 0.85rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .snippet-card {
+      background: #fafcff;
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius-md);
+      padding: 0.85rem;
+    }
+
+    .snippet-card h3 {
+      color: var(--text-accent);
+      font-size: 0.95rem;
+      margin-bottom: 0.45rem;
+    }
+
+    pre {
+      background: #f2f6ff;
+      border: 1px solid var(--line-soft);
+      border-radius: 10px;
+      color: #22304d;
+      font-family: "JetBrains Mono", "Fira Code", Consolas, Monaco, monospace;
+      font-size: 0.8rem;
+      line-height: 1.45;
+      overflow-x: auto;
+      padding: 0.7rem;
+      white-space: pre;
+    }
+
     @media (max-width: 760px) {
       .hero-layout { grid-template-columns: 1fr; }
       .hero-logo { width: 98px; }
@@ -279,9 +312,40 @@
 
     <section class="section">
       <h2 class="section-title">All release artifacts by platform</h2>
-      <p class="section-copy">If auto-detection is wrong in your browser, choose manually from the full list below.</p>
+      <p class="section-copy">If auto-detection is wrong in your browser, choose manually from the full list below. Desktop artifacts are ZIP-only.</p>
       <div class="card-grid" id="all-artifacts"></div>
     </section>
+
+    <section class="section" id="server-install-section">
+      <h2 class="section-title">Server install and run</h2>
+      <p class="section-copy">Shell install snippets download into <code>/usr/local/bin</code>, set executable bit, and run. For Linux, use the systemd setup snippet to run as a service.</p>
+      <div class="snippet-grid">
+        <article class="snippet-card">
+          <h3>Linux quick install (auto architecture)</h3>
+          <pre id="linux-server-install-command">Detecting Linux architecture...</pre>
+        </article>
+
+        <article class="snippet-card">
+          <h3>Linux systemd service setup</h3>
+          <pre id="linux-systemd-install-command">Detecting Linux architecture...</pre>
+        </article>
+
+        <article class="snippet-card">
+          <h3>FreeBSD amd64 quick install</h3>
+          <pre>sudo fetch -o /usr/local/bin/chicha-isotope-map https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_freebsd_amd64
+sudo chmod +x /usr/local/bin/chicha-isotope-map
+/usr/local/bin/chicha-isotope-map</pre>
+        </article>
+
+        <article class="snippet-card">
+          <h3>OpenBSD amd64 quick install</h3>
+          <pre>sudo ftp -o /usr/local/bin/chicha-isotope-map https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_openbsd_amd64
+sudo chmod +x /usr/local/bin/chicha-isotope-map
+/usr/local/bin/chicha-isotope-map</pre>
+        </article>
+      </div>
+    </section>
+
   </main>
 
   <script>
@@ -292,32 +356,23 @@
       macos: [
         ["chicha-isotope-map_darwin_amd64", "macOS amd64"],
         ["chicha-isotope-map_darwin_arm64", "macOS arm64"],
-        ["chicha-isotope-map_darwin_amd64_desktop", "macOS amd64 desktop"],
-        ["chicha-isotope-map_darwin_arm64_desktop", "macOS arm64 desktop"],
         ["chicha-isotope-map_darwin_amd64_duckdb", "macOS amd64 duckdb"],
         ["chicha-isotope-map_darwin_arm64_duckdb", "macOS arm64 duckdb"],
-        ["chicha-isotope-map_darwin_universal_desktop", "macOS universal desktop binary"],
         ["chicha-isotope-map_darwin_universal_desktop.app.zip", "macOS universal desktop app zip"]
       ],
       linux: [
         ["chicha-isotope-map_linux_386", "Linux 386"],
         ["chicha-isotope-map_linux_amd64", "Linux amd64"],
         ["chicha-isotope-map_linux_arm64", "Linux arm64"],
-        ["chicha-isotope-map_linux_amd64_desktop_gtk40", "Linux amd64 desktop GTK 4.0"],
         ["chicha-isotope-map_linux_amd64_desktop_gtk40.zip", "Linux amd64 desktop GTK 4.0 zip"],
-        ["chicha-isotope-map_linux_amd64_desktop_gtk41", "Linux amd64 desktop GTK 4.1"],
         ["chicha-isotope-map_linux_amd64_desktop_gtk41.zip", "Linux amd64 desktop GTK 4.1 zip"],
-        ["chicha-isotope-map_linux_arm64_desktop_gtk40", "Linux arm64 desktop GTK 4.0"],
         ["chicha-isotope-map_linux_arm64_desktop_gtk40.zip", "Linux arm64 desktop GTK 4.0 zip"],
-        ["chicha-isotope-map_linux_arm64_desktop_gtk41", "Linux arm64 desktop GTK 4.1"],
         ["chicha-isotope-map_linux_arm64_desktop_gtk41.zip", "Linux arm64 desktop GTK 4.1 zip"]
       ],
       windows: [
         ["chicha-isotope-map_windows_amd64.exe", "Windows amd64"],
-        ["chicha-isotope-map_windows_amd64_desktop.exe", "Windows amd64 desktop exe"],
         ["chicha-isotope-map_windows_amd64_desktop.zip", "Windows amd64 desktop zip"],
         ["chicha-isotope-map_windows_arm64.exe", "Windows arm64"],
-        ["chicha-isotope-map_windows_arm64_desktop.exe", "Windows arm64 desktop exe"],
         ["chicha-isotope-map_windows_arm64_desktop.zip", "Windows arm64 desktop zip"]
       ],
       bsd: [
@@ -412,6 +467,54 @@
       container.appendChild(createArtifactList("🪟 Windows", artifactCatalog.windows));
       container.appendChild(createArtifactList("🧪 BSD", artifactCatalog.bsd));
       container.appendChild(createArtifactList("🧷 Extra assets", artifactCatalog.assets));
+    }
+
+
+
+    function buildLinuxServerInstallCommand(architecture) {
+      const linuxBinaryName = architecture === "arm64" ? "chicha-isotope-map_linux_arm64" : "chicha-isotope-map_linux_amd64";
+      return [
+        `sudo curl -L -o /usr/local/bin/chicha-isotope-map ${releaseRoot}${linuxBinaryName}`,
+        "sudo chmod +x /usr/local/bin/chicha-isotope-map",
+        "/usr/local/bin/chicha-isotope-map"
+      ].join("\n");
+    }
+
+    function buildLinuxSystemdInstallCommand(architecture) {
+      const linuxBinaryName = architecture === "arm64" ? "chicha-isotope-map_linux_arm64" : "chicha-isotope-map_linux_amd64";
+      return [
+        `sudo curl -L -o /usr/local/bin/chicha-isotope-map ${releaseRoot}${linuxBinaryName}`,
+        "sudo chmod +x /usr/local/bin/chicha-isotope-map",
+        "sudo tee /etc/systemd/system/chicha-isotope-map.service >/dev/null <<'EOF'",
+        "[Unit]",
+        "Description=Chicha Isotope Map",
+        "After=network-online.target",
+        "Wants=network-online.target",
+        "",
+        "[Service]",
+        "Type=simple",
+        "ExecStart=/usr/local/bin/chicha-isotope-map",
+        "Restart=always",
+        "RestartSec=2",
+        "User=root",
+        "WorkingDirectory=/",
+        "",
+        "[Install]",
+        "WantedBy=multi-user.target",
+        "EOF",
+        "sudo systemctl daemon-reload",
+        "sudo systemctl enable --now chicha-isotope-map.service",
+        "sudo systemctl status chicha-isotope-map.service --no-pager"
+      ].join("\n");
+    }
+
+    function renderServerInstallSnippets(architecture) {
+      const linuxServerInstallElement = document.getElementById("linux-server-install-command");
+      const linuxSystemdInstallElement = document.getElementById("linux-systemd-install-command");
+      const linuxServerArchitecture = architecture === "arm64" ? "arm64" : "amd64";
+
+      linuxServerInstallElement.textContent = buildLinuxServerInstallCommand(linuxServerArchitecture);
+      linuxSystemdInstallElement.textContent = buildLinuxSystemdInstallCommand(linuxServerArchitecture);
     }
 
     function makeDownloadButton(label, href, primary = true) {
@@ -527,6 +630,7 @@
       const normalizedArchitecture = architecture === "unknown" ? "amd64" : architecture;
       const recommendation = buildRecommendationForKnownPlatform(operatingSystem, normalizedArchitecture);
       renderRecommendation(recommendation);
+      renderServerInstallSnippets(normalizedArchitecture);
     }
 
     initializePage();
