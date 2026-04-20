@@ -4,320 +4,243 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Chicha Isotope Map — Download</title>
-  <meta name="description" content="Download Chicha Isotope Map desktop ZIP builds and server binaries." />
+  <meta name="description" content="Download Chicha Isotope Map desktop builds and server binaries for all supported platforms." />
   <style>
     :root {
-      color-scheme: dark;
-      --page-background: #050608;
-      --surface-primary: #0b0f13;
-      --surface-secondary: #121923;
-      --surface-card: #10161f;
-      --surface-card-strong: #0d131b;
-      --line-soft: #243043;
-      --line-accent: #4f7fff;
-      --text-primary: #f3f6fb;
-      --text-secondary: #b2bfcd;
-      --safe: #6dff9b;
-      --button-primary-start: #7ea5ff;
-      --button-primary-end: #5d83ff;
-      --button-secondary: #1a2230;
-      --radius-xl: 28px;
-      --radius-lg: 20px;
-      --radius-md: 14px;
-      --shadow-xl: 0 36px 70px -42px rgba(0, 0, 0, 0.85);
-      --shadow-lg: 0 24px 48px -38px rgba(0, 0, 0, 0.8);
+      color-scheme: light;
+      --page-background: #f4f7fb;
+      --surface-primary: #ffffff;
+      --surface-secondary: #f7f9fd;
+      --line-soft: #d8e1ee;
+      --line-strong: #c4d2e6;
+      --text-primary: #1b2a42;
+      --text-secondary: #51617b;
+      --text-accent: #214ea6;
+      --safe: #167847;
+      --button-primary-start: #4e79ff;
+      --button-primary-end: #3f67e0;
+      --button-secondary: #eef3ff;
+      --shadow: 0 18px 40px -32px rgba(17, 52, 110, 0.45);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 12px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background:
-        radial-gradient(circle at 20% 0%, rgba(126, 165, 255, 0.16), transparent 34%),
-        radial-gradient(circle at 88% 8%, rgba(109, 255, 155, 0.1), transparent 36%),
+        radial-gradient(circle at 10% 0%, rgba(78, 121, 255, 0.11), transparent 32%),
+        radial-gradient(circle at 90% 8%, rgba(22, 120, 71, 0.08), transparent 35%),
         var(--page-background);
       color: var(--text-primary);
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       min-height: 100vh;
-      padding: 1.2rem;
+      padding: 1.1rem;
     }
 
-    .page {
-      margin: 0 auto;
-      max-width: 1160px;
-    }
+    .page { margin: 0 auto; max-width: 1180px; }
 
     .hero {
-      background: linear-gradient(160deg, rgba(18, 25, 35, 0.96), rgba(8, 12, 18, 0.96));
+      background: linear-gradient(180deg, #ffffff, #f8fbff);
       border: 1px solid var(--line-soft);
       border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-xl);
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      top: -180px;
-      right: -170px;
-      background: radial-gradient(circle, rgba(79, 127, 255, 0.24) 0%, rgba(79, 127, 255, 0) 70%);
-      pointer-events: none;
+      box-shadow: var(--shadow);
+      padding: 1.6rem;
     }
 
     .hero-layout {
       display: grid;
-      gap: 1.25rem;
+      gap: 1rem;
       align-items: center;
-      grid-template-columns: 120px 1fr;
-      position: relative;
-      z-index: 1;
+      grid-template-columns: 110px 1fr;
     }
 
     .hero-logo {
-      width: 120px;
-      border-radius: 24px;
-      border: 1px solid #2b3a52;
-      background: #ffffff;
+      width: 110px;
+      border-radius: 22px;
+      border: 1px solid var(--line-soft);
+      background: white;
       padding: 0.55rem;
     }
 
-    .hero-title {
-      font-size: clamp(1.8rem, 4vw, 2.7rem);
-      line-height: 1.16;
-      margin-bottom: 0.55rem;
-    }
+    .hero-title { font-size: clamp(1.7rem, 4vw, 2.45rem); margin-bottom: 0.45rem; }
+    .hero-copy { color: var(--text-secondary); max-width: 840px; }
 
-    .hero-copy {
-      color: var(--text-secondary);
-      max-width: 760px;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-      margin-top: 1rem;
-    }
-
-    .meta-pill {
-      border-radius: 999px;
-      border: 1px solid #32517a;
-      background: rgba(41, 72, 117, 0.26);
-      color: #c8d9ff;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      padding: 0.3rem 0.72rem;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.72rem;
-      margin-top: 1.05rem;
-    }
+    .actions { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 0.9rem; }
 
     .button {
+      border-radius: 11px;
       border: 1px solid transparent;
-      border-radius: 12px;
-      color: var(--text-primary);
+      color: white;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.95rem;
+      font-size: 0.93rem;
       font-weight: 700;
-      padding: 0.66rem 1.08rem;
+      padding: 0.62rem 1rem;
       text-decoration: none;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+      transition: transform 0.12s ease;
     }
 
-    .button:hover {
-      transform: translateY(-1px);
-    }
+    .button:hover { transform: translateY(-1px); }
 
     .button-primary {
       background: linear-gradient(180deg, var(--button-primary-start), var(--button-primary-end));
-      color: #081229;
-      box-shadow: 0 18px 30px -22px rgba(93, 131, 255, 0.95);
+      box-shadow: 0 14px 28px -18px rgba(63, 103, 224, 0.7);
     }
 
     .button-secondary {
       background: var(--button-secondary);
-      border-color: #32435d;
+      border-color: var(--line-strong);
+      color: var(--text-accent);
     }
 
     .recommended {
-      margin-top: 1.2rem;
-      background: linear-gradient(180deg, rgba(12, 17, 25, 0.98), rgba(7, 11, 16, 0.98));
-      border: 1px solid #2a3a52;
+      margin-top: 1rem;
+      background: var(--surface-secondary);
+      border: 1px solid var(--line-strong);
       border-radius: var(--radius-lg);
       padding: 1rem;
-      position: relative;
-      z-index: 1;
     }
 
     .recommended h2 {
-      align-items: center;
-      display: inline-flex;
+      display: flex;
+      flex-wrap: wrap;
       gap: 0.45rem;
-      font-size: 1.15rem;
-      margin-bottom: 0.22rem;
+      align-items: center;
+      font-size: 1.1rem;
+      margin-bottom: 0.38rem;
     }
 
-    .recommended p {
-      color: var(--text-secondary);
-      margin-bottom: 0.72rem;
+    .recommended p { color: var(--text-secondary); margin-bottom: 0.7rem; }
+
+    .platform-icon {
+      align-items: center;
+      background: #edf3ff;
+      border: 1px solid #bed0f3;
+      border-radius: 999px;
+      color: var(--text-accent);
+      display: inline-flex;
+      gap: 0.36rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.34rem 0.62rem;
+      white-space: nowrap;
     }
 
     .section {
-      margin-top: 1.05rem;
-      background: linear-gradient(180deg, rgba(10, 14, 21, 0.94), rgba(9, 13, 18, 0.94));
+      margin-top: 1rem;
+      background: var(--surface-primary);
       border: 1px solid var(--line-soft);
       border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-lg);
-      padding: 1.2rem;
+      box-shadow: var(--shadow);
+      padding: 1.15rem;
     }
 
     .section-title {
       border-bottom: 1px solid var(--line-soft);
-      font-size: 1.24rem;
-      margin-bottom: 0.85rem;
-      padding-bottom: 0.52rem;
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.45rem;
     }
 
-    .section-copy {
-      color: var(--text-secondary);
-      margin-bottom: 0.9rem;
-    }
+    .section-copy { color: var(--text-secondary); margin-bottom: 0.75rem; }
 
     .card-grid {
       display: grid;
-      gap: 0.9rem;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.85rem;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     }
 
     .card {
-      background: linear-gradient(180deg, var(--surface-card), var(--surface-card-strong));
-      border: 1px solid #2a3850;
+      background: #fafcff;
+      border: 1px solid var(--line-soft);
       border-radius: var(--radius-md);
-      padding: 0.92rem;
+      padding: 0.85rem;
     }
 
-    .card h3 {
-      align-items: center;
-      display: flex;
-      gap: 0.5rem;
-      font-size: 1rem;
-      margin-bottom: 0.28rem;
-    }
-
-    .platform-icon {
-      align-items: center;
-      background: rgba(126, 165, 255, 0.18);
-      border: 1px solid #32517a;
-      border-radius: 999px;
-      color: #d6e3ff;
-      display: inline-flex;
-      font-size: 0.8rem;
-      font-weight: 700;
-      gap: 0.35rem;
-      letter-spacing: 0.01em;
-      line-height: 1;
-      padding: 0.34rem 0.6rem;
-      white-space: nowrap;
-    }
-
-    .platform-icon-glyph {
-      font-size: 1rem;
-    }
-
-    .card p {
-      color: var(--text-secondary);
-      font-size: 0.92rem;
-      margin-bottom: 0.58rem;
-    }
-
-    .safe-note {
-      color: var(--safe);
-      font-size: 0.82rem;
-      font-weight: 600;
-      margin-bottom: 0.6rem;
-    }
+    .card h3 { font-size: 0.98rem; margin-bottom: 0.35rem; }
+    .card p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.52rem; }
+    .safe-note { color: var(--safe); font-weight: 700; font-size: 0.82rem; }
 
     .preview-image {
-      border: 1px solid #2b394f;
       border-radius: 10px;
+      border: 1px solid var(--line-soft);
       display: block;
-      margin-bottom: 0.62rem;
+      margin-bottom: 0.6rem;
       width: 100%;
     }
 
+    .asset-list {
+      list-style: none;
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .asset-list li {
+      align-items: center;
+      background: white;
+      border-bottom: 1px solid var(--line-soft);
+      display: grid;
+      gap: 0.5rem;
+      grid-template-columns: 1fr auto;
+      padding: 0.6rem 0.75rem;
+    }
+
+    .asset-list li:last-child { border-bottom: none; }
+
+    .asset-label { font-weight: 600; }
+    .asset-meta { color: var(--text-secondary); font-size: 0.82rem; }
+
+    .helper-note {
+      background: #fffbe9;
+      border: 1px solid #efdfa9;
+      border-radius: 10px;
+      color: #695300;
+      font-size: 0.88rem;
+      margin-top: 0.6rem;
+      padding: 0.55rem 0.7rem;
+    }
+
+
     .snippet-grid {
       display: grid;
-      gap: 0.86rem;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0.85rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
     .snippet-card {
-      background: #0a0f16;
-      border: 1px solid #2b394f;
+      background: #fafcff;
+      border: 1px solid var(--line-soft);
       border-radius: var(--radius-md);
-      padding: 0.88rem;
+      padding: 0.85rem;
     }
 
     .snippet-card h3 {
-      color: #9db7ff;
+      color: var(--text-accent);
       font-size: 0.95rem;
-      margin-bottom: 0.48rem;
+      margin-bottom: 0.45rem;
     }
 
     pre {
-      background: #05080d;
-      border: 1px solid #253246;
+      background: #f2f6ff;
+      border: 1px solid var(--line-soft);
       border-radius: 10px;
-      color: #9cffb7;
+      color: #22304d;
       font-family: "JetBrains Mono", "Fira Code", Consolas, Monaco, monospace;
-      font-size: 0.83rem;
+      font-size: 0.8rem;
+      line-height: 1.45;
       overflow-x: auto;
       padding: 0.7rem;
       white-space: pre;
     }
 
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1rem;
-    }
-
-    .footer-links a {
-      color: #97bcff;
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
-
     @media (max-width: 760px) {
-      .hero {
-        padding: 1.45rem;
-      }
-
-      .hero-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-logo {
-        width: 100px;
-      }
+      .hero-layout { grid-template-columns: 1fr; }
+      .hero-logo { width: 98px; }
+      .asset-list li { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -332,178 +255,385 @@
         />
         <div>
           <h1 class="hero-title">Chicha Isotope Map Download</h1>
-          <p class="hero-copy">Desktop builds are now distributed as ZIP archives for Linux and Windows, so you can extract and run them with expected executable permissions. The page layout is refreshed in the style of the Pinokio download page.</p>
-
+          <p class="hero-copy">The page now auto-detects OS + CPU architecture and gives Linux users both GTK variants (GTK 4.0 and GTK 4.1) with distro hints (Mint/Ubuntu/Debian/Fedora-like families).</p>
           <div class="actions">
             <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release">All release assets</a>
-    
           </div>
         </div>
       </div>
 
       <section class="recommended" id="recommended-download">
-        <h2><span class="platform-icon" id="recommended-platform-icon"><span class="platform-icon-glyph">🧩</span><span id="recommended-platform-label">Any OS</span></span> <span id="recommended-title">Recommended download</span></h2>
-        <p id="recommended-description">Detecting your system...</p>
-        <a class="button button-primary" id="recommended-link" href="https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release">Open download</a>
+        <h2>
+          <span class="platform-icon" id="recommended-platform-icon"><span id="recommended-platform-glyph">🧩</span><span id="recommended-platform-label">Any OS</span></span>
+          <span id="recommended-title">Recommended download</span>
+        </h2>
+        <p id="recommended-description">Detecting your platform and architecture…</p>
+        <div class="actions" id="recommended-actions"></div>
+        <p class="helper-note" id="linux-helper-note" hidden>
+          Linux desktop builds are split by GTK runtime: GTK 4.1 (newer distros like Mint 22+, Ubuntu 24.04+, Debian testing/13+, Fedora 40+) and GTK 4.0 (older LTS stacks like Mint 21.x, Ubuntu 22.04, Debian 12).
+        </p>
       </section>
     </section>
 
     <section class="section">
-      <h2 class="section-title">Desktop ZIP builds</h2>
-      <p class="section-copy">For Linux and Windows, use the ZIP artifacts, extract them, and run the desktop binary from the extracted folder.</p>
-
+      <h2 class="section-title">Quick desktop picks</h2>
+      <p class="section-copy">Ready-to-run desktop bundles for the most common targets.</p>
       <div class="card-grid">
         <article class="card">
-          <h3><span class="platform-icon"><span class="platform-icon-glyph">🍎</span>macOS</span> macOS Desktop Universal</h3>
-          <p>Universal desktop app for Apple Silicon and Intel Macs.</p>
-          <p class="safe-note">Delivered as .app.zip.</p>
+          <h3><span class="platform-icon">🍎 macOS</span> Universal Desktop App ZIP</h3>
+          <p>Single artifact for Intel + Apple Silicon.</p>
+          <p class="safe-note">File: .app.zip</p>
           <img class="preview-image" alt="macOS desktop preview" src="./chicha-isotope-map-macosx-universal.png" />
-          <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_universal_desktop.app.zip">Download macOS Universal ZIP</a>
+          <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_universal_desktop.app.zip">Download macOS universal desktop</a>
         </article>
 
         <article class="card">
-          <h3><span class="platform-icon"><span class="platform-icon-glyph">🐧</span>Linux x64</span> Linux amd64 Desktop</h3>
-          <p>Desktop build for Linux amd64 hosts.</p>
-          <p class="safe-note">Use the ZIP package.</p>
-          <img class="preview-image" alt="Linux amd64 desktop preview" src="./linux-arm64-desktop-google.png" />
-          <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop.zip">Download Linux amd64 ZIP</a>
+          <h3><span class="platform-icon">🪟 Windows</span> AMD64 Desktop ZIP</h3>
+          <p>Best for regular Intel/AMD x64 Windows PCs.</p>
+          <img class="preview-image" alt="Windows desktop preview" src="./windows-osm-light.png" />
+          <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64_desktop.zip">Download Windows amd64 desktop</a>
         </article>
 
         <article class="card">
-          <h3><span class="platform-icon"><span class="platform-icon-glyph">🐧</span>Linux ARM64</span> Linux arm64 Desktop</h3>
-          <p>Desktop build for Linux arm64 hosts.</p>
-          <p class="safe-note">Use the ZIP package.</p>
-          <img class="preview-image" alt="Linux arm64 desktop preview" src="./linux-arm64-desktop-osm-dark.png" />
-          <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_arm64_desktop.zip">Download Linux arm64 ZIP</a>
+          <h3><span class="platform-icon">🪟 Windows ARM</span> ARM64 Desktop ZIP</h3>
+          <p>For Snapdragon / ARM64 Windows devices.</p>
+          <img class="preview-image" alt="Windows ARM desktop preview" src="./windows-google-light.png" />
+          <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_arm64_desktop.zip">Download Windows arm64 desktop</a>
         </article>
 
         <article class="card">
-          <h3><span class="platform-icon"><span class="platform-icon-glyph">🪟</span>Windows x64</span> Windows amd64 Desktop</h3>
-          <p>Desktop build for modern Windows amd64 systems.</p>
-          <p class="safe-note">Use the ZIP package.</p>
-          <img class="preview-image" alt="Windows amd64 desktop preview" src="./windows-osm-dark.png" />
-          <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64_desktop.zip">Download Windows amd64 ZIP</a>
-        </article>
-
-        <article class="card">
-          <h3><span class="platform-icon"><span class="platform-icon-glyph">🪟</span>Windows ARM64</span> Windows arm64 Desktop</h3>
-          <p>Desktop build for Windows arm64 systems.</p>
-          <p class="safe-note">Use the ZIP package.</p>
-          <img class="preview-image" alt="Windows arm64 desktop preview" src="./windows-goog-light.png" />
-          <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_arm64_desktop.zip">Download Windows arm64 ZIP</a>
+          <h3><span class="platform-icon">🐧 Linux</span> AMD64 GTK 4.1 Desktop ZIP</h3>
+          <p>For newer desktop stacks (Mint 22+, Ubuntu 24.04+, Fedora 40+).</p>
+          <img class="preview-image" alt="Linux desktop preview" src="./linux-amd64-desktop.png" />
+          <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop_gtk41.zip">Download Linux amd64 GTK 4.1</a>
         </article>
       </div>
     </section>
 
     <section class="section">
-      <h2 class="section-title">Server quick install snippets</h2>
+      <h2 class="section-title">All release artifacts by platform</h2>
+      <p class="section-copy">If auto-detection is wrong in your browser, choose manually from the full list below. Desktop artifacts are ZIP-only.</p>
+      <div class="card-grid" id="all-artifacts"></div>
+    </section>
+
+    <section class="section" id="server-install-section">
+      <h2 class="section-title">Server install and run</h2>
+      <p class="section-copy">Shell install snippets download into <code>/usr/local/bin</code>, set executable bit, and run. For Linux, use the systemd setup snippet to run as a service.</p>
       <div class="snippet-grid">
         <article class="snippet-card">
-          <h3>Linux amd64 (main)</h3>
-          <pre>sudo curl -L -o /usr/local/bin/chicha-isotope-map https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64; sudo chmod +x /usr/local/bin/chicha-isotope-map; /usr/local/bin/chicha-isotope-map;</pre>
+          <h3>Linux quick install (auto architecture)</h3>
+          <pre id="linux-server-install-command">Detecting Linux architecture...</pre>
         </article>
 
         <article class="snippet-card">
-          <h3>FreeBSD amd64</h3>
-          <pre>sudo fetch -o /usr/local/bin/chicha-isotope-map https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_freebsd_amd64; sudo chmod +x /usr/local/bin/chicha-isotope-map; /usr/local/bin/chicha-isotope-map;</pre>
+          <h3>Linux systemd service setup</h3>
+          <pre id="linux-systemd-install-command">Detecting Linux architecture...</pre>
         </article>
 
         <article class="snippet-card">
-          <h3>OpenBSD amd64</h3>
-          <pre>sudo ftp -o /usr/local/bin/chicha-isotope-map https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_openbsd_amd64; sudo chmod +x /usr/local/bin/chicha-isotope-map; /usr/local/bin/chicha-isotope-map;</pre>
+          <h3>FreeBSD amd64 quick install</h3>
+          <pre>sudo fetch -o /usr/local/bin/chicha-isotope-map https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_freebsd_amd64
+sudo chmod +x /usr/local/bin/chicha-isotope-map
+/usr/local/bin/chicha-isotope-map</pre>
         </article>
 
         <article class="snippet-card">
-          <h3>NetBSD amd64</h3>
-          <pre>sudo ftp -o /usr/local/bin/chicha-isotope-map https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_netbsd_amd64; sudo chmod +x /usr/local/bin/chicha-isotope-map; /usr/local/bin/chicha-isotope-map;</pre>
+          <h3>OpenBSD amd64 quick install</h3>
+          <pre>sudo ftp -o /usr/local/bin/chicha-isotope-map https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_openbsd_amd64
+sudo chmod +x /usr/local/bin/chicha-isotope-map
+/usr/local/bin/chicha-isotope-map</pre>
         </article>
-      </div>
-
-      <div class="footer-links">
-        <a href="https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release">Other platforms: open full release assets</a>
       </div>
     </section>
+
   </main>
 
   <script>
-    // The download model is the single source of truth for all target-specific links.
-    const desktopDownloadModel = {
-      macosUniversal: {
-        platformIconGlyph: "🍎",
-        platformLabel: "macOS",
-        title: "Recommended for your Mac",
-        description: "Your browser looks like macOS. Use the Universal desktop ZIP for Apple Silicon and Intel Macs.",
-        buttonLabel: "Download macOS Universal ZIP",
-        downloadUrl: "https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_darwin_universal_desktop.app.zip"
-      },
-      windowsAmd64: {
-        platformIconGlyph: "🪟",
-        platformLabel: "Windows",
-        title: "Recommended for your Windows PC",
-        description: "Your browser looks like Windows. Use the desktop ZIP package.",
-        buttonLabel: "Download Windows amd64 ZIP",
-        downloadUrl: "https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_windows_amd64_desktop.zip"
-      },
-      linuxAmd64: {
-        platformIconGlyph: "🐧",
-        platformLabel: "Linux",
-        title: "Recommended for your Linux system",
-        description: "Your browser looks like Linux. Use the Linux amd64 desktop ZIP package.",
-        buttonLabel: "Download Linux amd64 ZIP",
-        downloadUrl: "https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop.zip"
-      },
-      fallback: {
-        platformIconGlyph: "🧩",
-        platformLabel: "Any OS",
-        title: "Recommended download",
-        description: "Could not detect your system exactly. Open all release assets and choose your platform ZIP build.",
-        buttonLabel: "Open all release assets",
-        downloadUrl: "https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release"
-      }
+    // The model below is the single source of truth for links and compatibility labels.
+    const releaseRoot = "https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/";
+
+    const artifactCatalog = {
+      macos: [
+        ["chicha-isotope-map_darwin_amd64", "macOS amd64"],
+        ["chicha-isotope-map_darwin_arm64", "macOS arm64"],
+        ["chicha-isotope-map_darwin_amd64_duckdb", "macOS amd64 duckdb"],
+        ["chicha-isotope-map_darwin_arm64_duckdb", "macOS arm64 duckdb"],
+        ["chicha-isotope-map_darwin_universal_desktop.app.zip", "macOS universal desktop app zip"]
+      ],
+      linux: [
+        ["chicha-isotope-map_linux_386", "Linux 386"],
+        ["chicha-isotope-map_linux_amd64", "Linux amd64"],
+        ["chicha-isotope-map_linux_arm64", "Linux arm64"],
+        ["chicha-isotope-map_linux_amd64_desktop_gtk40.zip", "Linux amd64 desktop GTK 4.0 zip"],
+        ["chicha-isotope-map_linux_amd64_desktop_gtk41.zip", "Linux amd64 desktop GTK 4.1 zip"],
+        ["chicha-isotope-map_linux_arm64_desktop_gtk40.zip", "Linux arm64 desktop GTK 4.0 zip"],
+        ["chicha-isotope-map_linux_arm64_desktop_gtk41.zip", "Linux arm64 desktop GTK 4.1 zip"]
+      ],
+      windows: [
+        ["chicha-isotope-map_windows_amd64.exe", "Windows amd64"],
+        ["chicha-isotope-map_windows_amd64_desktop.zip", "Windows amd64 desktop zip"],
+        ["chicha-isotope-map_windows_arm64.exe", "Windows arm64"],
+        ["chicha-isotope-map_windows_arm64_desktop.zip", "Windows arm64 desktop zip"]
+      ],
+      bsd: [
+        ["chicha-isotope-map_freebsd_amd64", "FreeBSD amd64"],
+        ["chicha-isotope-map_freebsd_arm64", "FreeBSD arm64"],
+        ["chicha-isotope-map_netbsd_amd64", "NetBSD amd64"],
+        ["chicha-isotope-map_openbsd_amd64", "OpenBSD amd64"],
+        ["chicha-isotope-map_openbsd_arm64", "OpenBSD arm64"]
+      ],
+      assets: [
+        ["chicha-isotope-map.png", "PNG icon"],
+        ["windows-desktop-icon.ico", "Windows icon"]
+      ]
     };
 
-    function readOperatingSystemFromUserAgent() {
-      const userAgentString = navigator.userAgent || "";
-      const platformString = navigator.platform || "";
+    function detectOperatingSystem() {
+      const userAgent = navigator.userAgent || "";
+      const platform = navigator.platform || "";
 
-      if (/Mac|iPhone|iPad|iPod/i.test(userAgentString) || /Mac/i.test(platformString)) {
-        return "macosUniversal";
-      }
-
-      if (/Win/i.test(userAgentString) || /Win/i.test(platformString)) {
-        return "windowsAmd64";
-      }
-
-      if (/Linux|X11/i.test(userAgentString) || /Linux/i.test(platformString)) {
-        return "linuxAmd64";
-      }
-
-      return "fallback";
+      if (/Windows/i.test(userAgent) || /Win/i.test(platform)) return "windows";
+      if (/Mac|iPhone|iPad|iPod/i.test(userAgent) || /Mac/i.test(platform)) return "macos";
+      if (/Linux|X11/i.test(userAgent) || /Linux/i.test(platform)) return "linux";
+      return "unknown";
     }
 
-    function renderRecommendedDownload(recommendedDownloadKey) {
-      const recommendedTitleElement = document.getElementById("recommended-title");
-      const recommendedDescriptionElement = document.getElementById("recommended-description");
-      const recommendedLinkElement = document.getElementById("recommended-link");
-      const recommendedPlatformIconElement = document.getElementById("recommended-platform-icon");
-      const recommendedPlatformLabelElement = document.getElementById("recommended-platform-label");
+    function detectArchitectureFromUserAgent() {
+      const userAgent = (navigator.userAgent || "").toLowerCase();
+      const platform = (navigator.platform || "").toLowerCase();
+      const source = `${userAgent} ${platform}`;
 
-      const recommendedDownloadState = desktopDownloadModel[recommendedDownloadKey] || desktopDownloadModel.fallback;
-
-      recommendedTitleElement.textContent = recommendedDownloadState.title;
-      recommendedDescriptionElement.textContent = recommendedDownloadState.description;
-      recommendedLinkElement.textContent = recommendedDownloadState.buttonLabel;
-      recommendedLinkElement.href = recommendedDownloadState.downloadUrl;
-      recommendedPlatformIconElement.querySelector(".platform-icon-glyph").textContent = recommendedDownloadState.platformIconGlyph;
-      recommendedPlatformLabelElement.textContent = recommendedDownloadState.platformLabel;
+      if (/aarch64|arm64|armv8|windows arm|winarm64/.test(source)) return "arm64";
+      if (/armv7|armv6| arm /.test(source)) return "arm";
+      if (/x86_64|amd64|wow64|win64|x64|intel/.test(source)) return "amd64";
+      if (/i686|i386|x86/.test(source)) return "386";
+      return "unknown";
     }
 
-    function initializeRecommendedDownload() {
-      const recommendedDownloadKey = readOperatingSystemFromUserAgent();
-      renderRecommendedDownload(recommendedDownloadKey);
+    async function detectArchitecture() {
+      if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
+        try {
+          const entropy = await navigator.userAgentData.getHighEntropyValues(["architecture", "bitness"]);
+          const architectureToken = `${entropy.architecture || ""}`.toLowerCase();
+          const bitnessToken = `${entropy.bitness || ""}`.toLowerCase();
+
+          if (architectureToken.includes("arm") && bitnessToken === "64") return "arm64";
+          if (architectureToken.includes("arm")) return "arm";
+          if ((architectureToken.includes("x86") || architectureToken.includes("amd")) && bitnessToken === "64") return "amd64";
+          if (architectureToken.includes("x86") && bitnessToken === "32") return "386";
+        } catch (error) {
+          console.warn("userAgentData architecture detection failed", error);
+        }
+      }
+
+      return detectArchitectureFromUserAgent();
     }
 
-    initializeRecommendedDownload();
+    function createArtifactList(title, entries) {
+      const wrapper = document.createElement("article");
+      wrapper.className = "card";
+
+      const header = document.createElement("h3");
+      header.textContent = title;
+      wrapper.appendChild(header);
+
+      const list = document.createElement("ul");
+      list.className = "asset-list";
+
+      for (const [filename, label] of entries) {
+        const listItem = document.createElement("li");
+        const link = document.createElement("a");
+        link.className = "asset-label";
+        link.textContent = label;
+        link.href = `${releaseRoot}${filename}`;
+
+        const meta = document.createElement("span");
+        meta.className = "asset-meta";
+        meta.textContent = filename;
+
+        listItem.appendChild(link);
+        listItem.appendChild(meta);
+        list.appendChild(listItem);
+      }
+
+      wrapper.appendChild(list);
+      return wrapper;
+    }
+
+    function renderAllArtifacts() {
+      const container = document.getElementById("all-artifacts");
+      container.appendChild(createArtifactList("🍎 macOS", artifactCatalog.macos));
+      container.appendChild(createArtifactList("🐧 Linux", artifactCatalog.linux));
+      container.appendChild(createArtifactList("🪟 Windows", artifactCatalog.windows));
+      container.appendChild(createArtifactList("🧪 BSD", artifactCatalog.bsd));
+      container.appendChild(createArtifactList("🧷 Extra assets", artifactCatalog.assets));
+    }
+
+
+
+    function buildLinuxServerInstallCommand(architecture) {
+      const linuxBinaryName = architecture === "arm64" ? "chicha-isotope-map_linux_arm64" : "chicha-isotope-map_linux_amd64";
+      return [
+        `sudo curl -L -o /usr/local/bin/chicha-isotope-map ${releaseRoot}${linuxBinaryName}`,
+        "sudo chmod +x /usr/local/bin/chicha-isotope-map",
+        "/usr/local/bin/chicha-isotope-map"
+      ].join("\n");
+    }
+
+    function buildLinuxSystemdInstallCommand(architecture) {
+      const linuxBinaryName = architecture === "arm64" ? "chicha-isotope-map_linux_arm64" : "chicha-isotope-map_linux_amd64";
+      return [
+        `sudo curl -L -o /usr/local/bin/chicha-isotope-map ${releaseRoot}${linuxBinaryName}`,
+        "sudo chmod +x /usr/local/bin/chicha-isotope-map",
+        "sudo tee /etc/systemd/system/chicha-isotope-map.service >/dev/null <<'EOF'",
+        "[Unit]",
+        "Description=Chicha Isotope Map",
+        "After=network-online.target",
+        "Wants=network-online.target",
+        "",
+        "[Service]",
+        "Type=simple",
+        "ExecStart=/usr/local/bin/chicha-isotope-map",
+        "Restart=always",
+        "RestartSec=2",
+        "User=root",
+        "WorkingDirectory=/",
+        "",
+        "[Install]",
+        "WantedBy=multi-user.target",
+        "EOF",
+        "sudo systemctl daemon-reload",
+        "sudo systemctl enable --now chicha-isotope-map.service",
+        "sudo systemctl status chicha-isotope-map.service --no-pager"
+      ].join("\n");
+    }
+
+    function renderServerInstallSnippets(architecture) {
+      const linuxServerInstallElement = document.getElementById("linux-server-install-command");
+      const linuxSystemdInstallElement = document.getElementById("linux-systemd-install-command");
+      const linuxServerArchitecture = architecture === "arm64" ? "arm64" : "amd64";
+
+      linuxServerInstallElement.textContent = buildLinuxServerInstallCommand(linuxServerArchitecture);
+      linuxSystemdInstallElement.textContent = buildLinuxSystemdInstallCommand(linuxServerArchitecture);
+    }
+
+    function makeDownloadButton(label, href, primary = true) {
+      const anchor = document.createElement("a");
+      anchor.className = primary ? "button button-primary" : "button button-secondary";
+      anchor.href = href;
+      anchor.textContent = label;
+      return anchor;
+    }
+
+    function renderRecommendation(state) {
+      const titleElement = document.getElementById("recommended-title");
+      const descriptionElement = document.getElementById("recommended-description");
+      const platformLabelElement = document.getElementById("recommended-platform-label");
+      const platformGlyphElement = document.getElementById("recommended-platform-glyph");
+      const actionsElement = document.getElementById("recommended-actions");
+      const linuxNoteElement = document.getElementById("linux-helper-note");
+
+      titleElement.textContent = state.title;
+      descriptionElement.textContent = state.description;
+      platformLabelElement.textContent = state.platformLabel;
+      platformGlyphElement.textContent = state.platformGlyph;
+
+      actionsElement.innerHTML = "";
+      for (const action of state.actions) {
+        actionsElement.appendChild(makeDownloadButton(action.label, action.href, action.primary));
+      }
+
+      linuxNoteElement.hidden = !state.showLinuxHelper;
+    }
+
+    function buildRecommendationForKnownPlatform(operatingSystem, architecture) {
+      const allAssetsUrl = "https://github.com/matveynator/chicha-isotope-map/releases/tag/stable-release";
+
+      if (operatingSystem === "windows") {
+        if (architecture === "arm64") {
+          return {
+            platformGlyph: "🪟",
+            platformLabel: "Windows ARM64",
+            title: "Recommended for your Windows ARM64 device",
+            description: "Architecture detection says ARM64, so default download is ARM64 desktop ZIP.",
+            actions: [
+              { label: "Download Windows ARM64 desktop ZIP", href: `${releaseRoot}chicha-isotope-map_windows_arm64_desktop.zip`, primary: true },
+              { label: "Open all assets", href: allAssetsUrl, primary: false }
+            ],
+            showLinuxHelper: false
+          };
+        }
+
+        return {
+          platformGlyph: "🪟",
+          platformLabel: "Windows AMD64",
+          title: "Recommended for your Windows PC",
+          description: "Architecture detection says x64/amd64, so default download is AMD64 desktop ZIP.",
+          actions: [
+            { label: "Download Windows AMD64 desktop ZIP", href: `${releaseRoot}chicha-isotope-map_windows_amd64_desktop.zip`, primary: true },
+            { label: "Need ARM64 instead", href: `${releaseRoot}chicha-isotope-map_windows_arm64_desktop.zip`, primary: false }
+          ],
+          showLinuxHelper: false
+        };
+      }
+
+      if (operatingSystem === "linux") {
+        const architectureLabel = architecture === "arm64" ? "ARM64" : "AMD64";
+        const gtk40Suffix = architecture === "arm64" ? "linux_arm64_desktop_gtk40.zip" : "linux_amd64_desktop_gtk40.zip";
+        const gtk41Suffix = architecture === "arm64" ? "linux_arm64_desktop_gtk41.zip" : "linux_amd64_desktop_gtk41.zip";
+
+        return {
+          platformGlyph: "🐧",
+          platformLabel: `Linux ${architectureLabel}`,
+          title: `Recommended for your Linux ${architectureLabel} system`,
+          description: "Browser cannot reliably detect GTK runtime level, so both Linux desktop variants are shown.",
+          actions: [
+            { label: `Download Linux ${architectureLabel} GTK 4.1`, href: `${releaseRoot}chicha-isotope-map_${gtk41Suffix}`, primary: true },
+            { label: `Download Linux ${architectureLabel} GTK 4.0`, href: `${releaseRoot}chicha-isotope-map_${gtk40Suffix}`, primary: false },
+            { label: "Open all assets", href: allAssetsUrl, primary: false }
+          ],
+          showLinuxHelper: true
+        };
+      }
+
+      if (operatingSystem === "macos") {
+        return {
+          platformGlyph: "🍎",
+          platformLabel: "macOS",
+          title: "Recommended for your Mac",
+          description: "Use the universal desktop app ZIP (works on both Apple Silicon and Intel).",
+          actions: [
+            { label: "Download macOS universal desktop", href: `${releaseRoot}chicha-isotope-map_darwin_universal_desktop.app.zip`, primary: true },
+            { label: "Open all assets", href: allAssetsUrl, primary: false }
+          ],
+          showLinuxHelper: false
+        };
+      }
+
+      return {
+        platformGlyph: "🧩",
+        platformLabel: "Any OS",
+        title: "Could not detect your environment",
+        description: "Open all release assets and choose OS + architecture manually.",
+        actions: [
+          { label: "Open all assets", href: allAssetsUrl, primary: true }
+        ],
+        showLinuxHelper: false
+      };
+    }
+
+    async function initializePage() {
+      renderAllArtifacts();
+
+      const operatingSystem = detectOperatingSystem();
+      const architecture = await detectArchitecture();
+      const normalizedArchitecture = architecture === "unknown" ? "amd64" : architecture;
+      const recommendation = buildRecommendationForKnownPlatform(operatingSystem, normalizedArchitecture);
+      renderRecommendation(recommendation);
+      renderServerInstallSnippets(normalizedArchitecture);
+    }
+
+    initializePage();
   </script>
 </body>
 </html>
