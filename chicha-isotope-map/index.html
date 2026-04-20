@@ -163,6 +163,11 @@
     .card h3 { font-size: 0.98rem; margin-bottom: 0.35rem; }
     .card p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.52rem; }
     .safe-note { color: var(--safe); font-weight: 700; font-size: 0.82rem; }
+    .subsection-title {
+      color: var(--text-accent);
+      font-size: 1rem;
+      margin: 0.9rem 0 0.55rem;
+    }
 
     .preview-image {
       border-radius: 10px;
@@ -183,16 +188,13 @@
       align-items: center;
       background: white;
       border-bottom: 1px solid var(--line-soft);
-      display: grid;
-      gap: 0.5rem;
-      grid-template-columns: 1fr auto;
+      display: block;
       padding: 0.6rem 0.75rem;
     }
 
     .asset-list li:last-child { border-bottom: none; }
 
-    .asset-label { font-weight: 600; }
-    .asset-meta { color: var(--text-secondary); font-size: 0.82rem; }
+    .asset-label { display: block; font-weight: 600; width: 100%; }
 
     .helper-note {
       background: #fffbe9;
@@ -311,7 +313,8 @@
 
     <section class="section">
       <h2 class="section-title">Desktop downloads — Linux</h2>
-      <p class="section-copy">Pick architecture first, then GTK runtime (GTK 4.0 for older distros, GTK 4.1 for newer distros).</p>
+      <p class="section-copy">Choose GTK runtime first, then architecture.</p>
+      <h3 class="subsection-title">GTK 4.0 builds</h3>
       <div class="card-grid">
         <article class="card">
           <h3><span class="platform-icon">🐧 Linux AMD64</span> GTK 4.0 Desktop ZIP</h3>
@@ -321,17 +324,20 @@
         </article>
 
         <article class="card">
-          <h3><span class="platform-icon">🐧 Linux AMD64</span> GTK 4.1 Desktop ZIP</h3>
-          <p>For newer GTK 4.1-based desktop stacks.</p>
-          <img class="preview-image" alt="Linux desktop preview" src="./linux-amd64-desktop.png" />
-          <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop_gtk41.zip">Download Linux amd64 GTK 4.1</a>
-        </article>
-
-        <article class="card">
           <h3><span class="platform-icon">🐧 Linux ARM64</span> GTK 4.0 Desktop ZIP</h3>
           <p>For ARM64 Linux systems with GTK 4.0.</p>
           <img class="preview-image" alt="Linux arm64 GTK 4.0 desktop preview" src="./linux-arm64-desktop.png" />
           <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_arm64_desktop_gtk40.zip">Download Linux arm64 GTK 4.0</a>
+        </article>
+      </div>
+
+      <h3 class="subsection-title">GTK 4.1 builds</h3>
+      <div class="card-grid">
+        <article class="card">
+          <h3><span class="platform-icon">🐧 Linux AMD64</span> GTK 4.1 Desktop ZIP</h3>
+          <p>For newer GTK 4.1-based desktop stacks.</p>
+          <img class="preview-image" alt="Linux amd64 GTK 4.1 desktop preview" src="./linux-amd64-desktop.png" />
+          <a class="button button-primary" href="https://github.com/matveynator/chicha-isotope-map/releases/download/stable-release/chicha-isotope-map_linux_amd64_desktop_gtk41.zip">Download Linux amd64 GTK 4.1</a>
         </article>
 
         <article class="card">
@@ -438,10 +444,6 @@ sudo chmod +x /usr/local/bin/chicha-isotope-map
         ["chicha-isotope-map_netbsd_amd64", "NetBSD amd64"],
         ["chicha-isotope-map_openbsd_amd64", "OpenBSD amd64"],
         ["chicha-isotope-map_openbsd_arm64", "OpenBSD arm64"]
-      ],
-      assets: [
-        ["chicha-isotope-map.png", "PNG icon"],
-        ["windows-desktop-icon.ico", "Windows icon"]
       ]
     };
 
@@ -503,13 +505,7 @@ sudo chmod +x /usr/local/bin/chicha-isotope-map
         link.className = "asset-label";
         link.textContent = label;
         link.href = `${releaseRoot}${filename}`;
-
-        const meta = document.createElement("span");
-        meta.className = "asset-meta";
-        meta.textContent = filename;
-
         listItem.appendChild(link);
-        listItem.appendChild(meta);
         list.appendChild(listItem);
       }
 
@@ -523,7 +519,6 @@ sudo chmod +x /usr/local/bin/chicha-isotope-map
       container.appendChild(createArtifactList("🐧 Linux", artifactCatalog.linux));
       container.appendChild(createArtifactList("🪟 Windows", artifactCatalog.windows));
       container.appendChild(createArtifactList("🧪 BSD", artifactCatalog.bsd));
-      container.appendChild(createArtifactList("🧷 Extra assets", artifactCatalog.assets));
     }
 
 
