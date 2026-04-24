@@ -7,46 +7,69 @@
   <meta name="description" content="Download Chicha Isotope Map desktop builds and server binaries for all supported platforms." />
   <style>
     :root {
-      color-scheme: light;
-      --page-background: #f4f7fb;
-      --surface-primary: #ffffff;
-      --surface-secondary: #f7f9fd;
-      --line-soft: #d8e1ee;
-      --line-strong: #c4d2e6;
-      --text-primary: #1b2a42;
-      --text-secondary: #51617b;
-      --text-accent: #214ea6;
-      --safe: #167847;
-      --button-primary-start: #4e79ff;
-      --button-primary-end: #3f67e0;
-      --button-secondary: #eef3ff;
-      --shadow: 0 18px 40px -32px rgba(17, 52, 110, 0.45);
+      color-scheme: dark;
+      --page-background: #050912;
+      --grid-line: rgba(90, 172, 255, 0.14);
+      --surface-primary: #091321;
+      --surface-secondary: #0d1a2d;
+      --line-soft: rgba(112, 177, 255, 0.25);
+      --line-strong: rgba(114, 220, 255, 0.45);
+      --text-primary: #f1f8ff;
+      --text-secondary: #8ea5c2;
+      --text-accent: #7ee2ff;
+      --safe: #98f5bd;
+      --button-primary-start: #15b5ff;
+      --button-primary-end: #1a6aff;
+      --button-secondary: rgba(22, 38, 64, 0.9);
+      --hero-glow: rgba(17, 152, 255, 0.22);
+      --warning-background: rgba(71, 52, 9, 0.45);
+      --warning-line: rgba(237, 191, 58, 0.4);
+      --warning-text: #ffd981;
       --radius-xl: 24px;
       --radius-lg: 18px;
       --radius-md: 12px;
+      --shadow: 0 24px 60px -40px rgba(29, 147, 255, 0.9);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background:
-        radial-gradient(circle at 10% 0%, rgba(78, 121, 255, 0.11), transparent 32%),
-        radial-gradient(circle at 90% 8%, rgba(22, 120, 71, 0.08), transparent 35%),
+        radial-gradient(circle at 12% -10%, rgba(15, 184, 255, 0.32), transparent 34%),
+        radial-gradient(circle at 88% 0%, rgba(87, 111, 255, 0.3), transparent 37%),
+        linear-gradient(135deg, rgba(10, 21, 39, 0.84) 1px, transparent 1px),
+        linear-gradient(45deg, rgba(10, 21, 39, 0.84) 1px, transparent 1px),
         var(--page-background);
+      background-size: auto, auto, 24px 24px, 24px 24px, auto;
       color: var(--text-primary);
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       min-height: 100vh;
       padding: 1.1rem;
     }
 
+    a { color: inherit; }
+
     .page { margin: 0 auto; max-width: 1180px; }
 
     .hero {
-      background: linear-gradient(180deg, #ffffff, #f8fbff);
+      background:
+        linear-gradient(180deg, rgba(15, 26, 44, 0.93), rgba(9, 18, 32, 0.93)),
+        radial-gradient(circle at 80% -20%, var(--hero-glow), transparent 60%);
       border: 1px solid var(--line-soft);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
       padding: 1.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 45%, rgba(115, 230, 255, 0.12) 50%, transparent 55%);
+      transform: translateX(-90%);
+      pointer-events: none;
     }
 
     .hero-layout {
@@ -54,17 +77,25 @@
       gap: 1rem;
       align-items: center;
       grid-template-columns: 110px 1fr;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-logo {
       width: 110px;
       border-radius: 22px;
       border: 1px solid var(--line-soft);
-      background: white;
+      background: #ffffff;
       padding: 0.55rem;
     }
 
-    .hero-title { font-size: clamp(1.7rem, 4vw, 2.45rem); margin-bottom: 0.45rem; }
+    .hero-title {
+      font-size: clamp(1.7rem, 4vw, 2.45rem);
+      letter-spacing: 0.03em;
+      margin-bottom: 0.45rem;
+      text-transform: uppercase;
+    }
+
     .hero-copy { color: var(--text-secondary); max-width: 840px; }
 
     .actions { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 0.9rem; }
@@ -78,30 +109,36 @@
       justify-content: center;
       font-size: 0.93rem;
       font-weight: 700;
+      letter-spacing: 0.02em;
       padding: 0.62rem 1rem;
       text-decoration: none;
-      transition: transform 0.12s ease;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
     }
 
-    .button:hover { transform: translateY(-1px); }
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(148, 235, 255, 0.52);
+    }
 
     .button-primary {
       background: linear-gradient(180deg, var(--button-primary-start), var(--button-primary-end));
-      box-shadow: 0 14px 28px -18px rgba(63, 103, 224, 0.7);
+      box-shadow: 0 18px 30px -20px rgba(32, 141, 255, 0.9);
     }
 
     .button-secondary {
       background: var(--button-secondary);
-      border-color: var(--line-strong);
+      border-color: var(--line-soft);
       color: var(--text-accent);
     }
 
     .recommended {
       margin-top: 1rem;
-      background: var(--surface-secondary);
+      background: linear-gradient(180deg, rgba(14, 29, 50, 0.96), rgba(10, 23, 42, 0.94));
       border: 1px solid var(--line-strong);
       border-radius: var(--radius-lg);
       padding: 1rem;
+      position: relative;
+      z-index: 1;
     }
 
     .recommended h2 {
@@ -117,8 +154,8 @@
 
     .platform-icon {
       align-items: center;
-      background: #edf3ff;
-      border: 1px solid #bed0f3;
+      background: rgba(28, 46, 74, 0.95);
+      border: 1px solid rgba(120, 200, 255, 0.42);
       border-radius: 999px;
       color: var(--text-accent);
       display: inline-flex;
@@ -131,7 +168,7 @@
 
     .section {
       margin-top: 1rem;
-      background: var(--surface-primary);
+      background: linear-gradient(180deg, rgba(8, 18, 32, 0.95), rgba(7, 15, 27, 0.95));
       border: 1px solid var(--line-soft);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
@@ -141,8 +178,10 @@
     .section-title {
       border-bottom: 1px solid var(--line-soft);
       font-size: 1.2rem;
+      letter-spacing: 0.02em;
       margin-bottom: 0.75rem;
       padding-bottom: 0.45rem;
+      text-transform: uppercase;
     }
 
     .section-copy { color: var(--text-secondary); margin-bottom: 0.75rem; }
@@ -154,7 +193,7 @@
     }
 
     .card {
-      background: #fafcff;
+      background: linear-gradient(180deg, rgba(13, 26, 45, 0.95), rgba(9, 20, 35, 0.95));
       border: 1px solid var(--line-soft);
       border-radius: var(--radius-md);
       padding: 0.85rem;
@@ -163,10 +202,13 @@
     .card h3 { font-size: 0.98rem; margin-bottom: 0.35rem; }
     .card p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.52rem; }
     .safe-note { color: var(--safe); font-weight: 700; font-size: 0.82rem; }
+
     .subsection-title {
       color: var(--text-accent);
       font-size: 1rem;
       margin: 0.9rem 0 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
     }
 
     .preview-image {
@@ -186,7 +228,7 @@
 
     .asset-list li {
       align-items: center;
-      background: white;
+      background: rgba(11, 22, 38, 0.95);
       border-bottom: 1px solid var(--line-soft);
       display: block;
       padding: 0.6rem 0.75rem;
@@ -194,18 +236,24 @@
 
     .asset-list li:last-child { border-bottom: none; }
 
-    .asset-label { display: block; font-weight: 600; width: 100%; }
+    .asset-label {
+      display: block;
+      font-weight: 600;
+      text-decoration-color: rgba(126, 226, 255, 0.35);
+      width: 100%;
+    }
+
+    .asset-label:hover { color: var(--text-accent); }
 
     .helper-note {
-      background: #fffbe9;
-      border: 1px solid #efdfa9;
+      background: var(--warning-background);
+      border: 1px solid var(--warning-line);
       border-radius: 10px;
-      color: #695300;
+      color: var(--warning-text);
       font-size: 0.88rem;
       margin-top: 0.6rem;
       padding: 0.55rem 0.7rem;
     }
-
 
     .snippet-grid {
       display: grid;
@@ -214,7 +262,7 @@
     }
 
     .snippet-card {
-      background: #fafcff;
+      background: linear-gradient(180deg, rgba(13, 26, 45, 0.95), rgba(10, 21, 36, 0.95));
       border: 1px solid var(--line-soft);
       border-radius: var(--radius-md);
       padding: 0.85rem;
@@ -227,10 +275,10 @@
     }
 
     pre {
-      background: #f2f6ff;
-      border: 1px solid var(--line-soft);
+      background: rgba(5, 14, 25, 0.92);
+      border: 1px solid rgba(111, 176, 247, 0.35);
       border-radius: 10px;
-      color: #22304d;
+      color: #d3f2ff;
       font-family: "JetBrains Mono", "Fira Code", Consolas, Monaco, monospace;
       font-size: 0.8rem;
       line-height: 1.45;
